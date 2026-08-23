@@ -7,521 +7,546 @@
 <meta name="description" content="BleedBOLD runs menstrual health sessions and menstrual cup distribution in schools and communities across Rajasthan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --berry:#B83A5C;
-    --berry-deep:#8C2C46;
-    --marigold:#E8A430;
-    --marigold-deep:#C4870F;
-    --ink:#241C1A;
-    --ink-soft:#5A4E48;
-    --paper:#FBF6EC;
-    --blush:#F7E6E2;
-    --sand-deep:#E9DEC6;
-  }
+  :root{--berry:#B83A5C;--berry-deep:#8C2C46;--marigold:#E8A430;--marigold-deep:#C4870F;--ink:#241C1A;--ink-soft:#5A4E48;--paper:#FBF6EC;--blush:#F7E6E2;--sand-deep:#E9DEC6;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;}
+  html[lang="hi"] body{font-family:'Noto Sans Devanagari','Work Sans',sans-serif;font-size:17px;}
+  html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3,html[lang="hi"] h4{font-family:'Noto Sans Devanagari','Fraunces',serif;}
+  a{color:var(--berry-deep);}
+  a:hover{color:var(--berry);}
   img{max-width:100%;display:block;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px);}
   section{padding:88px 0;}
-  .kicker{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:14px;}
-  .section-head{max-width:640px;margin-bottom:52px;}
-  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,3.2vw,2.6rem);letter-spacing:-0.01em;line-height:1.12;}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:14px;}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.07;letter-spacing:-.015em;max-width:820px;}
+  h1 em{font-style:italic;color:var(--berry);}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.01em;}
+  h2 em{font-style:italic;color:var(--berry);}
+  h3,h4{font-family:'Fraunces',serif;font-weight:600;}
+  .section-head{max-width:680px;margin-bottom:52px;}
   .section-head p{margin-top:16px;color:var(--ink-soft);font-size:1.05rem;}
-
-  /* Header */
-  header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--sand-deep);}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
-  .wordmark{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:-0.01em;}
+  header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--sand-deep);}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;padding:16px clamp(20px,4vw,32px);max-width:1180px;margin:0 auto;flex-wrap:wrap;}
+  .wordmark{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;}
   .wordmark em{font-style:italic;color:var(--berry);}
-  .navlinks{display:flex;align-items:center;gap:28px;list-style:none;font-size:0.9rem;font-weight:500;}
-  .navlinks a{text-decoration:none;position:relative;padding-bottom:4px;}
-  .navlinks a:not(.cta)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--berry);transition:width 0.25s ease;}
-  .navlinks a:not(.cta):hover::after{width:100%;}
-  .navlinks a.cta{background:var(--marigold);color:var(--ink);padding:10px 20px;border-radius:100px;font-weight:600;}
-  .navlinks a.cta:hover{background:var(--marigold-deep);}
-  .menu-toggle{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink);}
-
-  /* Buttons */
-  .btn{display:inline-block;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:background 0.15s ease, transform 0.15s ease;}
+  .navlinks{display:flex;align-items:center;gap:22px;list-style:none;font-size:.92rem;font-weight:500;flex-wrap:wrap;}
+  .navlinks a{text-decoration:none;color:var(--ink);}
+  .navlinks a:hover{color:var(--berry);}
+  .lang{display:flex;border:1.5px solid var(--ink);border-radius:100px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:.78rem;}
+  .lang button{border:0;background:none;padding:9px 15px;cursor:pointer;font:inherit;color:var(--ink);}
+  .lang button+button{border-left:1.5px solid var(--ink);font-family:'Noto Sans Devanagari',sans-serif;}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .btn{display:inline-block;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .15s ease;}
   .btn.gold{background:var(--marigold);color:var(--ink);}
-  .btn.gold:hover{background:var(--marigold-deep);transform:translateY(-1px);}
+  .btn.gold:hover{background:var(--marigold-deep);color:var(--ink);}
   .btn.outline{border:1.5px solid var(--ink);color:var(--ink);}
   .btn.outline:hover{background:var(--ink);color:var(--paper);}
-
-  /* Hero */
-  .hero{padding:76px 32px 0;position:relative;overflow:hidden;}
-  .blob{position:absolute;border-radius:50%;z-index:0;pointer-events:none;}
-  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:22px;display:flex;align-items:center;gap:12px;position:relative;z-index:2;}
+  .hero{padding:76px clamp(20px,4vw,32px) 0;position:relative;overflow:hidden;}
+  .blob{position:absolute;width:320px;height:320px;border-radius:50%;background:var(--marigold);opacity:.22;top:-40px;right:0;pointer-events:none;}
+  .hero .wrap{position:relative;z-index:2;}
+  .eyebrow{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:22px;}
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--berry);}
-  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:1.06;letter-spacing:-0.015em;max-width:760px;position:relative;z-index:2;}
-  h1 em{font-style:italic;font-weight:600;color:var(--berry);}
-  .lede{color:var(--ink-soft);font-size:1.14rem;max-width:480px;margin-top:26px;line-height:1.6;position:relative;z-index:2;}
-  .cta-row{display:flex;gap:16px;margin-top:36px;position:relative;z-index:2;flex-wrap:wrap;}
-
-  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;position:relative;z-index:2;}
-  .stat-strip > div{padding:26px 22px;}
-  .stat-strip > div:nth-child(1){background:var(--ink);}
-  .stat-strip > div:nth-child(2){background:var(--berry);}
-  .stat-strip > div:nth-child(3){background:var(--marigold);}
-  .stat-strip .n{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:1.9rem;}
-  .stat-strip > div:nth-child(1) .n{color:var(--marigold);}
-  .stat-strip > div:nth-child(2) .n{color:#fff;}
-  .stat-strip > div:nth-child(3) .n{color:var(--ink);}
-  .stat-strip .l{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;margin-top:4px;}
-  .stat-strip > div:nth-child(1) .l{color:#D8CFC8;}
-  .stat-strip > div:nth-child(2) .l{color:#F5D9E0;}
-  .stat-strip > div:nth-child(3) .l{color:#5A4310;}
-
-  .photo-row{display:grid;grid-template-columns:0.9fr 1.1fr;gap:24px;padding:64px 0 76px;position:relative;z-index:2;align-items:end;}
-  .photo-row img{width:100%;object-fit:cover;}
-  .arch-photo img{aspect-ratio:3/4;clip-path:url(#archClip);}
-  .tilt2{aspect-ratio:1/1;border-radius:20px;transform:rotate(1.6deg);}
-
-  /* Block print divider */
-  .print-strip{width:100%;height:44px;display:block;}
-  .print-strip rect{fill:url(#butaStrip);}
-
-  /* Founder / quote strip */
-  .quote-strip{background:var(--ink);padding:52px 32px;position:relative;overflow:hidden;}
-  .quote-strip .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
-  .quote{font-family:'Fraunces',serif;font-style:italic;font-weight:600;color:var(--paper);font-size:1.55rem;max-width:600px;line-height:1.4;}
-  .founder-pic{display:flex;align-items:center;gap:18px;}
-  .founder-pic img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--marigold);flex-shrink:0;}
-  .founder-meta{display:flex;flex-direction:column;gap:4px;}
-  .founder-name{font-weight:600;color:var(--paper);font-size:0.95rem;}
-  .founder-role{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--marigold);text-transform:uppercase;letter-spacing:0.04em;}
-
-  /* Mission */
-  .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-  .mission-grid p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem;}
-  .mission-grid p strong{color:var(--ink);font-weight:600;}
+  .lede{color:var(--ink-soft);font-size:1.14rem;max-width:520px;margin-top:26px;}
+  .cta-row{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+  .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:56px 0 76px;}
+  .stat-strip>div{padding:26px 22px;}
+  .stat-strip>div:nth-child(1){background:var(--ink);}
+  .stat-strip>div:nth-child(2){background:var(--berry);}
+  .stat-strip>div:nth-child(3){background:var(--marigold);}
+  .stat-strip .n{font-family:'IBM Plex Mono',monospace;font-size:1.9rem;}
+  .stat-strip .l{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;margin-top:4px;}
+  .stat-strip>div:nth-child(1) .n{color:var(--marigold);}.stat-strip>div:nth-child(1) .l{color:#D8CFC8;}
+  .stat-strip>div:nth-child(2) .n{color:#fff;}.stat-strip>div:nth-child(2) .l{color:#F5D9E0;}
+  .stat-strip>div:nth-child(3) .n{color:var(--ink);}.stat-strip>div:nth-child(3) .l{color:#5A4310;}
+  .rule{height:1px;background:var(--sand-deep);max-width:1180px;margin:0 auto;}
+  .quote-strip{background:var(--ink);padding:52px clamp(20px,4vw,32px);}
+  .quote-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .quote{font-family:'Fraunces',serif;font-style:italic;font-weight:600;color:var(--paper);font-size:1.55rem;max-width:620px;line-height:1.4;}
+  html[lang="hi"] .quote{font-family:'Noto Sans Devanagari',serif;font-style:normal;}
+  .founder{display:flex;align-items:center;gap:18px;}
+  .founder img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--marigold);}
+  .founder .name{font-weight:600;color:var(--paper);font-size:.95rem;}
+  .founder .role{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--marigold);text-transform:uppercase;}
+  .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,64px);align-items:start;}
+  .two-col p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem;}
+  .two-col strong{color:var(--ink);}
   .pull{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.5rem;line-height:1.4;color:var(--ink);border-left:3px solid var(--berry);padding-left:24px;}
-
-  /* Card grids, reused for why-cup, process, fold guide */
-  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  html[lang="hi"] .pull{font-family:'Noto Sans Devanagari',serif;font-style:normal;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px;}
   .card{background:var(--paper);border:1px solid var(--sand-deep);padding:30px 26px;border-radius:16px;}
+  .card h3{font-size:1.15rem;margin-bottom:10px;}
+  .card p{color:var(--ink-soft);font-size:.94rem;}
   .card .p-icon{width:44px;height:44px;margin-bottom:18px;}
-  .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin-bottom:10px;}
-  .card p{color:var(--ink-soft);font-size:0.92rem;}
-  .why-cup{background:var(--blush);}
-  .process{background:var(--paper);}
-
-  /* Meet the cup section */
-  .meet-cup{background:var(--paper);}
-  .cup-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:center;}
-  .cup-illustration{background:var(--blush);border-radius:24px;padding:40px;display:flex;align-items:center;justify-content:center;}
-  .cup-facts{list-style:none;}
-  .cup-facts li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--sand-deep);font-size:0.96rem;color:var(--ink-soft);}
-  .cup-facts li:last-child{border-bottom:1px solid var(--sand-deep);}
-  .cup-facts .ck{color:var(--berry);flex-shrink:0;}
-
-  .fold-guide{margin-top:64px;}
-  .fold-guide-head{margin-bottom:32px;}
-  .fold-guide-head h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:8px;}
-  .fold-guide-head p{color:var(--ink-soft);font-size:0.95rem;max-width:560px;}
-  .fold-methods{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  .fold-method{background:var(--paper);border:1px solid var(--sand-deep);border-radius:16px;padding:28px;}
-  .fold-method h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;margin-bottom:18px;}
-  .fold-steps{display:flex;align-items:center;justify-content:space-between;gap:6px;}
-  .fold-step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;}
-  .fold-step svg{width:56px;height:56px;}
-  .fold-step span{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);text-align:center;}
-  .fold-arrow{color:var(--sand-deep);flex-shrink:0;}
-
-  /* Photo blocks, Our Work */
-  .work{background:var(--blush);}
-  .photo-block{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--paper);border:1px solid var(--sand-deep);border-radius:16px;margin-bottom:24px;overflow:hidden;}
-  .photo-block:last-child{margin-bottom:0;}
-  .photo-block.reverse .pb-text{order:2;}
-  .photo-block.reverse .pb-img{order:1;}
-  .pb-img{position:relative;min-height:320px;}
-  .pb-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
-  .pb-text{padding:40px;display:flex;flex-direction:column;justify-content:center;}
-  .pb-tag{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:12px;}
-  .pb-text h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:14px;line-height:1.2;}
-  .pb-text p{color:var(--ink-soft);font-size:0.96rem;}
-
-  /* Donate */
-  .donate{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;}
-  .donate .kicker{color:var(--marigold);}
+  .card .num{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--berry-deep);margin-bottom:16px;}
+  .blush{background:var(--blush);}
+  .panel{border-radius:24px;padding:clamp(24px,4vw,44px);margin-bottom:22px;}
+  .panel.light{background:var(--blush);}
+  .panel.dark{background:var(--ink);color:var(--paper);}
+  .panel.plain{background:var(--paper);border:1px solid var(--sand-deep);}
+  .panel.dark .kicker{color:var(--marigold);}
+  .facts{display:grid;gap:2px;}
+  .facts>div{background:var(--paper);padding:18px 22px;}
+  .facts .k{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--berry-deep);}
+  .facts .v{font-size:1rem;margin-top:4px;}
+  .fold-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px;}
+  .fold-card{background:var(--paper);border-radius:18px;overflow:hidden;cursor:pointer;color:var(--ink);}
+  .fold-card .sel{height:5px;background:var(--marigold);opacity:0;}
+  .fold-card[aria-selected="true"] .sel{opacity:1;}
+  .fold-card .inner{padding:26px 24px 22px;}
+  .fold-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:18px;}
+  .fold-head h4{font-size:1.24rem;}
+  .fold-head span{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;color:var(--berry-deep);white-space:nowrap;}
+  .frames{display:grid;grid-template-columns:.82fr 1.18fr;gap:10px;margin-bottom:16px;}
+  .mini-col{display:grid;grid-template-rows:1fr 1fr;gap:10px;}
+  .frame{position:relative;background:linear-gradient(170deg,#FDF4F1,#F2DBD9);border-radius:12px;padding:10px 8px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;overflow:hidden;}
+  .frame.big{background:linear-gradient(165deg,#FBEDEA,#EFD3D2);border:1.5px solid var(--marigold);border-radius:14px;padding:14px 12px 12px;gap:8px;}
+  .frame svg{width:100%;max-width:56px;}
+  .frame.big svg{max-width:104px;}
+  .frame .bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--marigold);opacity:0;}
+  .frame .cap{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--berry-deep);text-align:center;line-height:1.4;}
+  .frame.big .badge{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--berry-deep);text-align:center;}
+  .frame.big .desc{font-size:.92rem;font-weight:500;text-align:center;line-height:1.45;}
+  .mini-col .frame:nth-child(1) .bar{animation:bb1 6.6s linear infinite;}
+  .mini-col .frame:nth-child(2) .bar{animation:bb2 6.6s linear infinite;}
+  .frame.big .bar{animation:bb3 6.6s linear infinite;height:4px;}
+  @keyframes bb1{0%,30%{opacity:1}33%,100%{opacity:0}}
+  @keyframes bb2{0%,30%{opacity:0}33%,63%{opacity:1}66%,100%{opacity:0}}
+  @keyframes bb3{0%,63%{opacity:0}66%,96%{opacity:1}99%,100%{opacity:0}}
+  .fold-steps>div{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--sand-deep);}
+  .fold-steps .n{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--berry);}
+  .fold-steps .s{font-size:.96rem;line-height:1.5;}
+  .fold-meta{margin-top:20px;padding-top:16px;border-top:1px solid var(--sand-deep);display:grid;gap:10px;font-size:.94rem;}
+  .fold-meta>div{display:flex;justify-content:space-between;gap:12px;}
+  .fold-meta .k{font-family:'IBM Plex Mono',monospace;font-size:.8rem;text-transform:uppercase;color:var(--ink-soft);}
+  .fold-meta .v{font-weight:500;}
+  .fold-tip{margin-top:26px;border-left:3px solid var(--marigold);padding:4px 0 4px 20px;max-width:760px;}
+  .fold-tip .who{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--marigold);margin-bottom:6px;}
+  .fold-tip .what{color:#F3EDE6;font-size:1.06rem;line-height:1.55;}
+  .steps5>div{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--sand-deep);}
+  .steps5>div:last-child{border-bottom:1px solid var(--sand-deep);}
+  .steps5 .n{font-family:'IBM Plex Mono',monospace;font-size:1.3rem;color:var(--berry);line-height:1;}
+  .steps5 .t{font-weight:600;margin-bottom:4px;}
+  .steps5 .d{color:var(--ink-soft);font-size:.95rem;}
+  .check{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;cursor:pointer;background:var(--blush);border-radius:12px;padding:14px 16px;font-size:.95rem;border:0;text-align:left;font-family:inherit;color:inherit;width:100%;}
+  .check:hover{background:#F1DAD5;}
+  .box{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--berry);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .box svg{width:14px;height:14px;opacity:0;}
+  .check[aria-pressed="true"] .box svg{opacity:1;}
+  .side-by{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-bottom:22px;}
+  .photo-block{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));background:var(--paper);border:1px solid var(--sand-deep);border-radius:16px;overflow:hidden;margin-bottom:24px;}
+  .photo-block .img{position:relative;min-height:340px;}
+  .photo-block .img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .photo-block .txt{padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;justify-content:center;}
+  .photo-block .tag{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:12px;}
+  .photo-block h3{font-size:1.45rem;margin-bottom:14px;}
+  .photo-block p{color:var(--ink-soft);font-size:.97rem;}
+  .donate{background:var(--ink);color:var(--paper);}
   .donate h2{color:var(--paper);}
+  .donate .kicker{color:var(--marigold);}
   .donate .section-head p{color:#D8CFC8;}
-  .donate-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
-  .price-compare{display:flex;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
-  .price-col{flex:1;min-width:170px;}
-  .price-label{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#D8CFC8;margin-bottom:8px;}
-  .price-bar{border-radius:10px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:1rem;}
-  .price-bar.retail{background:rgba(255,255,255,0.1);color:#D8CFC8;text-decoration:line-through;text-decoration-color:rgba(216,207,200,0.5);}
-  .price-bar.cost{background:var(--marigold);color:var(--ink);}
-  .donate-copy p{color:#D8CFC8;margin-bottom:16px;font-size:1.02rem;}
-  .donate-list{list-style:none;margin-top:20px;}
-  .donate-list li{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.16);font-size:0.95rem;color:#F3EDE6;}
-  .donate-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.16);}
-  .donate-list .n{font-family:'IBM Plex Mono',monospace;color:var(--marigold);font-weight:500;}
-  .donate-card{background:var(--paper);color:var(--ink);border-radius:16px;padding:34px;}
-  .donate-card .kicker{color:var(--berry-deep);}
-  .donate-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;margin-bottom:14px;}
-  .upi-box{border:1.5px dashed var(--sand-deep);border-radius:10px;padding:18px;margin:18px 0;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;color:var(--ink-soft);}
-  .donate-card p{font-size:0.9rem;color:var(--ink-soft);margin-bottom:10px;}
-  .intl-note{margin-top:20px;padding-top:18px;border-top:1px solid var(--sand-deep);font-size:0.87rem;color:var(--ink-soft);}
-  .intl-note a{color:var(--berry);font-weight:600;text-decoration:none;}
-  .intl-note a:hover{text-decoration:underline;}
-
-  /* Contact */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:clamp(28px,4vw,56px);align-items:start;}
+  .price{display:flex;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+  .price>div{flex:1;min-width:170px;}
+  .price .l{font-family:'IBM Plex Mono',monospace;font-size:.74rem;text-transform:uppercase;color:#D8CFC8;margin-bottom:8px;}
+  .price .bar{border-radius:10px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-size:1rem;}
+  .price .bar.retail{background:rgba(255,255,255,.1);color:#D8CFC8;text-decoration:line-through;}
+  .price .bar.cost{background:var(--marigold);color:var(--ink);}
+  .donate p{color:#D8CFC8;margin-bottom:16px;font-size:1.02rem;}
+  .trust>div{display:flex;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.16);font-size:.96rem;color:#F3EDE6;}
+  .trust>div:last-child{border-bottom:1px solid rgba(255,255,255,.16);}
+  .trust .n{font-family:'IBM Plex Mono',monospace;color:var(--marigold);flex-shrink:0;}
+  .donate-card{background:var(--paper);color:var(--ink);border-radius:16px;padding:clamp(24px,3vw,34px);}
+  .donate-card h3{font-size:1.35rem;margin-bottom:4px;}
+  .donate-card .sub{font-size:.94rem;color:var(--ink-soft);margin-bottom:18px;}
+  .amts{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px;}
+  .amts button{border:1.5px solid var(--sand-deep);border-radius:12px;padding:14px 10px;background:none;font-family:'IBM Plex Mono',monospace;font-size:1.02rem;cursor:pointer;color:var(--ink);}
+  .amts button[aria-pressed="true"]{background:var(--marigold);border-color:var(--marigold);}
+  .buys{display:flex;gap:10px;align-items:flex-start;background:var(--blush);border-radius:12px;padding:14px 16px;margin-top:12px;}
+  .buys .k{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--berry-deep);padding-top:3px;flex-shrink:0;}
+  .buys .v{font-size:.98rem;line-height:1.45;}
+  .upi-go{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;padding:17px 24px;border-radius:100px;text-decoration:none;font-weight:600;font-size:1rem;background:var(--marigold);color:var(--ink);}
+  .upi-go:hover{background:var(--marigold-deep);color:var(--ink);}
+  .upi-note{font-size:.84rem;color:var(--ink-soft);text-align:center;margin-top:8px;}
+  .qr{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border-top:1px solid var(--sand-deep);margin-top:22px;padding-top:22px;}
+  .qr img{width:132px;height:132px;border-radius:8px;background:#fff;}
+  .qr .k{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:6px;}
+  .qr .id{font-family:'IBM Plex Mono',monospace;font-size:.86rem;word-break:break-all;margin-bottom:10px;}
+  .qr button{border:1.5px solid var(--ink);border-radius:100px;padding:8px 16px;font-size:.84rem;font-weight:600;cursor:pointer;background:none;font-family:inherit;color:var(--ink);}
+  .qr button:hover{background:var(--ink);color:var(--paper);}
+  .fineprint{margin-top:20px;padding-top:18px;border-top:1px solid var(--sand-deep);font-size:.88rem;color:var(--ink-soft);}
   .contact-card{background:var(--blush);border:1px solid var(--sand-deep);border-radius:16px;padding:40px;}
-  .contact-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:14px;}
+  .contact-card h3{font-size:1.4rem;margin-bottom:14px;}
   .contact-card p{color:var(--ink-soft);margin-bottom:22px;}
-  .email-link{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:1.02rem;font-weight:500;color:var(--berry-deep);text-decoration:none;border-bottom:1.5px solid var(--berry);padding-bottom:3px;}
-  .email-link:hover{color:var(--berry);}
-
-  /* Footer */
+  .email{display:inline-flex;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:1.02rem;font-weight:500;color:var(--berry-deep);text-decoration:none;border-bottom:1.5px solid var(--berry);padding-bottom:3px;}
   footer{background:var(--ink);color:var(--paper);padding:48px 0 28px;}
   .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;}
-  footer .wordmark{color:var(--paper);}
-  footer .wordmark em{color:var(--marigold);}
-  .footer-tag{color:#B9ACA4;font-size:0.9rem;margin-top:10px;max-width:300px;}
-  .footer-links{display:flex;gap:26px;list-style:none;font-size:0.9rem;}
-  .footer-links a{text-decoration:none;color:#DACFC8;}
+  footer .wordmark{color:var(--paper);}footer .wordmark em{color:var(--marigold);}
+  .footer-tag{color:#B9ACA4;font-size:.92rem;margin-top:10px;max-width:320px;}
+  .footer-links{display:flex;gap:24px;list-style:none;font-size:.92rem;flex-wrap:wrap;}
+  .footer-links a{color:#DACFC8;text-decoration:none;}
   .footer-links a:hover{color:var(--paper);}
-  .footer-bottom{margin-top:36px;padding-top:22px;border-top:1px solid #3A312D;font-size:0.8rem;color:#8A7C74;}
-
-  @media (max-width:860px){
-    .navlinks{position:fixed;top:66px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:22px 32px;gap:16px;border-bottom:1px solid var(--sand-deep);transform:translateY(-130%);transition:transform 0.25s ease;}
-    .navlinks.open{transform:translateY(0);}
-    .menu-toggle{display:block;}
-    .stat-strip{grid-template-columns:1fr;}
-    .photo-row{grid-template-columns:1fr;}
-    .arch-photo img{aspect-ratio:4/5;}
-    .tilt2{margin-top:0;}
-    .mission-grid{grid-template-columns:1fr;gap:32px;}
-    .card-grid{grid-template-columns:1fr;}
-    .cup-grid{grid-template-columns:1fr;}
-    .fold-methods{grid-template-columns:1fr;}
-    .photo-block, .photo-block.reverse{grid-template-columns:1fr;}
-    .photo-block.reverse .pb-text{order:1;}
-    .photo-block.reverse .pb-img{order:2;}
-    .pb-img{min-height:240px;}
-    .donate-grid{grid-template-columns:1fr;}
-    .price-compare{flex-direction:column;}
-    .contact-grid{grid-template-columns:1fr;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{transition:none !important;}
-  }
+  .footer-bottom{margin-top:36px;padding-top:22px;border-top:1px solid #3A312D;font-size:.82rem;color:#8A7C74;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.frame .bar{animation:none;opacity:0;}}
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute;">
-  <defs>
-    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
-      <path d="M0,1 L0,0.5 C0,0.368 0.0667,0.316 0.1333,0.237 C0.183,0.171 0.2,0.105 0.25,0.0658 C0.3,0.0263 0.3667,0 0.5,0 C0.6333,0 0.7,0.0263 0.75,0.0658 C0.8,0.105 0.8167,0.171 0.8667,0.237 C0.9333,0.316 1,0.368 1,0.5 L1,1 Z"/>
-    </clipPath>
-    <pattern id="butaStrip" width="64" height="44" patternUnits="userSpaceOnUse">
-      <rect width="64" height="44" fill="#FBF6EC"/>
-      <path d="M32,8 C24,8 18,15 18,23 C18,31 25,36 32,36 C36,36 36,29 32,25 C29,22 29,15 34,12 C36,10.5 35,8 32,8 Z" fill="#B83A5C" opacity="0.85"/>
-      <circle cx="10" cy="22" r="2.5" fill="#E8A430"/>
-      <circle cx="54" cy="22" r="2.5" fill="#E8A430"/>
-    </pattern>
-    <pattern id="bandhaniDots" width="26" height="26" patternUnits="userSpaceOnUse">
-      <circle cx="5" cy="5" r="2" fill="#E8A430" opacity="0.5"/>
-      <circle cx="18" cy="18" r="2" fill="#E8A430" opacity="0.5"/>
-    </pattern>
-  </defs>
-</svg>
-
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="siliconeBody" x1="0" y1="0" x2="1" y2="0.4"><stop offset="0" stop-color="#F6C9D4"/><stop offset="0.28" stop-color="#EFA5B8"/><stop offset="0.55" stop-color="#D96E8C"/><stop offset="0.82" stop-color="#C04A6C"/><stop offset="1" stop-color="#E092A8"/></linearGradient>
+  <linearGradient id="siliconeRim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBE3EA"/><stop offset="0.5" stop-color="#EFA9BC"/><stop offset="1" stop-color="#C9557A"/></linearGradient>
+  <radialGradient id="rimInner" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#A83457"/><stop offset="1" stop-color="#D0708D"/></radialGradient>
+  <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2"/></filter>
+</defs></svg>
 <header>
   <nav class="nav">
     <div class="wordmark">bleed<em>BOLD</em></div>
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#why-cup">Why A Cup</a></li>
-      <li><a href="#meet-cup">Using A Cup</a></li>
-      <li><a href="#work">Our Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#donate" class="cta">Donate</a></li>
+    <ul class="navlinks">
+      <li><a href="#mission" data-hi="मिशन">Mission</a></li>
+      <li><a href="#why-cup" data-hi="कप क्यों">Why a cup</a></li>
+      <li><a href="#first-time" data-hi="पहली बार">First time</a></li>
+      <li><a href="#questions" data-hi="सवाल">Questions</a></li>
+      <li><a href="#work" data-hi="हमारा काम">Our work</a></li>
+      <li><a href="#contact" data-hi="संपर्क">Contact</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="lang">
+        <button type="button" id="langEn" aria-pressed="true">ENG</button>
+        <button type="button" id="langHi" aria-pressed="false">हिंदी</button>
+      </div>
+      <a href="#donate" class="btn gold" style="padding:10px 20px" data-hi="सहयोग करें">Donate</a>
+    </div>
   </nav>
 </header>
 
 <div class="hero">
-  <div class="blob" style="width:320px;height:320px;background:var(--marigold);opacity:0.22;top:-40px;right:0;"></div>
+  <div class="blob"></div>
   <div class="wrap">
-    <div class="eyebrow">Mount Abu, Rajasthan</div>
-    <h1>Nobody should miss school over <em>something this normal</em>.</h1>
-    <p class="lede">We run in person sessions in schools and communities, then leave every girl with a menstrual cup that lasts fifteen years, not a pamphlet.</p>
+    <div class="eyebrow" data-hi="माउंट आबू, राजस्थान">Mount Abu, Rajasthan</div>
+    <h1 data-hi="इतनी आम बात के लिए किसी की पढ़ाई नहीं छूटनी चाहिए, &lt;em&gt;यह बिल्कुल सामान्य है&lt;/em&gt;।">Nobody should miss school over <em>something this normal</em>.</h1>
+    <p class="lede" data-hi="हम स्कूलों और समुदायों में खुद जाकर सत्र करते हैं, और हर लड़की को पंद्रह साल चलने वाला मेंस्ट्रुअल कप देकर आते हैं, कोई पर्चा नहीं।">We run in person sessions in schools and communities, then leave every girl with a menstrual cup that lasts fifteen years, not a pamphlet.</p>
     <div class="cta-row">
-      <a href="#donate" class="btn gold">Chip in ₹50</a>
-      <a href="#mission" class="btn outline">Read our mission</a>
+      <a href="#donate" class="btn gold" data-hi="₹50 दें">Chip in ₹50</a>
+      <a href="#first-time" class="btn outline" data-hi="पहली बार कप इस्तेमाल करना">Using a cup, first time</a>
     </div>
     <div class="stat-strip">
-      <div><div class="n">16+</div><div class="l">Schools reached</div></div>
-      <div><div class="n">30+</div><div class="l">Workshops run</div></div>
-      <div><div class="n">200+</div><div class="l">Distributions</div></div>
-    </div>
-    <div class="photo-row">
-      <div class="arch-photo"><img src="images/session.jpg" alt="Girls seated during a BleedBOLD school awareness session in Rajasthan"></div>
-      <img class="tilt2" src="images/distribution.jpg" alt="Women and girls holding up menstrual cups distributed by BleedBOLD">
+      <div><div class="n">16+</div><div class="l" data-hi="स्कूल पहुँचे">Schools reached</div></div>
+      <div><div class="n">30+</div><div class="l" data-hi="कार्यशालाएँ">Workshops run</div></div>
+      <div><div class="n">200+</div><div class="l" data-hi="कप बाँटे">Distributions</div></div>
     </div>
   </div>
 </div>
-
-<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
 
 <div class="quote-strip">
-  <svg width="100%" height="100%" style="position:absolute;inset:0;"><rect width="100%" height="100%" fill="url(#bandhaniDots)"/></svg>
   <div class="wrap">
-    <div class="quote">"We're often the first place a girl's ever been offered a cup, not a pad."</div>
-    <div class="founder-pic">
+    <div class="quote" data-hi="&quot;अक्सर हम ही पहली जगह होते हैं जहाँ किसी लड़की को पैड की जगह कप दिया जाता है।&quot;">"We're often the first place a girl's ever been offered a cup, not a pad."</div>
+    <div class="founder">
       <img src="images/founder.jpg" alt="Utkarsha, founder of BleedBOLD">
-      <div class="founder-meta">
-        <div class="founder-name">Utkarsha</div>
-        <div class="founder-role">Founder, BleedBOLD</div>
+      <div>
+        <div class="name">Utkarsha</div>
+        <div class="role" data-hi="संस्थापक, BleedBOLD">Founder, BleedBOLD</div>
       </div>
     </div>
   </div>
 </div>
 
-<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
-
 <section id="mission">
-  <div class="wrap">
-    <div class="mission-grid">
-      <div>
-        <div class="kicker">Why this exists</div>
-        <h2>A gap nobody was filling</h2>
-      </div>
-      <div>
-        <p>BleedBOLD started with a simple observation from home: in many families, periods are still handled in whispers, girls miss school during their cycle, and menstrual cups, the one product that could actually solve this, aren't sold anywhere nearby.</p>
-        <p><strong>We run in person sessions</strong> in schools and community halls that cover the biology, the hygiene, and the plain fact that this is normal, not shameful. We follow every session with menstrual cup distribution so the conversation turns into something a girl can actually use that week, and use again for the next fifteen years.</p>
-        <p class="pull">Nobody should have to choose between school and their period.</p>
-      </div>
+  <div class="wrap two-col">
+    <div>
+      <div class="kicker" data-hi="यह क्यों शुरू हुआ">Why this exists</div>
+      <h2 data-hi="एक कमी जिसे कोई पूरा नहीं कर रहा था">A gap nobody was filling</h2>
+    </div>
+    <div>
+      <p data-hi="BleedBOLD घर की एक साधारण बात से शुरू हुआ: कई परिवारों में पीरियड्स आज भी दबी आवाज़ में निपटाए जाते हैं, लड़कियाँ उन दिनों स्कूल छोड़ देती हैं, और मेंस्ट्रुअल कप, जो इसका असली हल है, आसपास कहीं मिलता ही नहीं।">BleedBOLD started with a simple observation from home: in many families, periods are still handled in whispers, girls miss school during their cycle, and menstrual cups, the one product that could actually solve this, aren't sold anywhere nearby.</p>
+      <p data-hi="&lt;strong&gt;हम खुद जाकर सत्र करते हैं&lt;/strong&gt; स्कूलों और समुदाय भवनों में, जहाँ हम शरीर की बात, सफ़ाई की बात, और यह सीधी बात करते हैं कि यह सामान्य है, शर्म की बात नहीं। हर सत्र के बाद कप बाँटे जाते हैं, ताकि बातचीत उसी हफ़्ते काम की चीज़ बन जाए, और आगे पंद्रह साल काम आए।"><strong>We run in person sessions</strong> in schools and community halls that cover the biology, the hygiene, and the plain fact that this is normal, not shameful. We follow every session with menstrual cup distribution so the conversation turns into something a girl can actually use that week, and use again for the next fifteen years.</p>
+      <p class="pull" data-hi="किसी को स्कूल और अपने पीरियड में से एक नहीं चुनना चाहिए।">Nobody should have to choose between school and their period.</p>
     </div>
   </div>
 </section>
 
-<section class="why-cup" id="why-cup">
+<section id="why-cup" class="blush">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Why a cup, not a pad</div>
-      <h2>The thing girls actually need, but can't buy</h2>
+      <div class="kicker" data-hi="कप क्यों, पैड क्यों नहीं">Why a cup, not a pad</div>
+      <h2 data-hi="जो चीज़ असल में ज़रूरी है, वही बाज़ार में नहीं">The thing girls actually need, but can't buy</h2>
     </div>
     <div class="card-grid">
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 18 12 27C12 34 17.4 39 24 39C30.6 39 36 34 36 27C36 18 24 5 24 5Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 27C18 27 19 32 24 32" stroke="#E8A430" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-        <h3>Not on any shelf</h3>
-        <p>Walk into almost any pharmacy, mall kiosk, or corner shop in a small town and you'll find pads. Menstrual cups are a different story, most places simply don't stock them. For many girls we work with, we're the first place they've ever been offered one.</p>
-      </div>
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17" stroke="#B83A5C" stroke-width="2.2"/><path d="M24 14V24L31 28" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Lasts 15 plus years</h3>
-        <p>One cup, cared for properly, holds up for over fifteen years. That's not close to a monthly pad purchase, it's a decision a girl makes once and is done with for most of her reproductive life.</p>
-      </div>
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 6L38 12V22C38 31 32 38 24 41C16 38 10 31 10 22V12L24 6Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 23L22 27L30 18" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Checked by a gynecologist</h3>
-        <p>Every cup we distribute is reviewed by a gynecologist before it reaches anyone. Quality control on menstrual products varies a lot depending on where they're made, so we verify it ourselves rather than take a supplier's word for it.</p>
-      </div>
+      <div class="card"><svg viewBox="0 0 48 48" fill="none" class="p-icon"><path d="M24 5C24 5 12 18 12 27C12 34 17.4 39 24 39C30.6 39 36 34 36 27C36 18 24 5 24 5Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 27C18 27 19 32 24 32" stroke="#E8A430" stroke-width="2.2" stroke-linecap="round"/></svg><h3 data-hi="किसी दुकान पर नहीं मिलता">Not on any shelf</h3><p data-hi="छोटे शहर की किसी भी दवा दुकान या किराना दुकान पर पैड मिल जाएँगे। कप की कहानी अलग है, ज़्यादातर जगह रखते ही नहीं। हमारे साथ जुड़ी कई लड़कियों के लिए हम ही पहली जगह हैं जहाँ उन्हें कप मिला।">Walk into almost any pharmacy or corner shop in a small town and you'll find pads. Menstrual cups are a different story, most places simply don't stock them. For many girls we work with, we're the first place they've ever been offered one.</p></div>
+      <div class="card"><svg viewBox="0 0 48 48" fill="none" class="p-icon"><circle cx="24" cy="24" r="17" stroke="#B83A5C" stroke-width="2.2"/><path d="M24 14V24L31 28" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round"/></svg><h3 data-hi="पंद्रह साल से ज़्यादा चलता है">Lasts 15 plus years</h3><p data-hi="एक कप, ठीक से रखा जाए तो पंद्रह साल से ज़्यादा चलता है। यह हर महीने के खर्च जैसा नहीं है, एक बार का फ़ैसला है जो ज़िंदगी के बड़े हिस्से तक साथ देता है।">One cup, cared for properly, holds up for over fifteen years. That's not close to a monthly pad purchase, it's a decision a girl makes once and is done with for most of her reproductive life.</p></div>
+      <div class="card"><svg viewBox="0 0 48 48" fill="none" class="p-icon"><path d="M24 6L38 12V22C38 31 32 38 24 41C16 38 10 31 10 22V12L24 6Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 23L22 27L30 18" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round"/></svg><h3 data-hi="स्त्री रोग विशेषज्ञ से जाँचा हुआ">Checked by a gynecologist</h3><p data-hi="हम जो कप बाँटते हैं, वह किसी के हाथ में पहुँचने से पहले स्त्री रोग विशेषज्ञ देखती हैं। गुणवत्ता हर जगह एक सी नहीं होती, इसलिए हम सप्लायर की बात पर भरोसा करने के बजाय खुद जाँचते हैं।">Every cup we distribute is reviewed by a gynecologist before it reaches anyone. Quality control on menstrual products varies a lot, so we verify it ourselves rather than take a supplier's word for it.</p></div>
     </div>
   </div>
 </section>
 
-<section class="meet-cup" id="meet-cup">
+<section id="first-time" style="padding-bottom:0">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">First time with a cup</div>
-      <h2>What it is, and how it's used</h2>
-      <p>Most girls we meet have never seen a menstrual cup before, so every session starts here.</p>
+      <div class="kicker" data-hi="पहली बार कप के साथ">First time with a cup</div>
+      <h2 data-hi="घबराना बिल्कुल सामान्य है। &lt;em&gt;पूरी बात&lt;/em&gt;, आराम से।">Feeling unsure is normal. Here's <em>the whole thing</em>, gently.</h2>
+      <p data-hi="हमसे मिलने वाली ज़्यादातर लड़कियों ने कप पहले कभी हाथ में नहीं लिया। यही समझ हम कमरे में देते हैं, और हर किट में छपी हुई रखते हैं, अंग्रेज़ी और हिंदी दोनों में।">Most girls we meet have never held a cup before. This is the same walkthrough we give in the room, printed and folded into every kit we hand out, in English and Hindi.</p>
     </div>
-    <div class="cup-grid">
-      <div class="cup-illustration">
-        <svg viewBox="0 0 200 260" width="100%" style="max-width:220px;">
-          <ellipse cx="100" cy="42" rx="70" ry="15" fill="none" stroke="#B83A5C" stroke-width="4"/>
-          <ellipse cx="100" cy="42" rx="70" ry="15" fill="#B83A5C" opacity="0.08"/>
-          <path d="M30,44 C24,112 40,177 78,204 C92,212 108,212 122,204 C160,177 176,112 170,44" fill="none" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/>
-          <path d="M42,80 C40,80 160,80 158,80" stroke="#B83A5C" stroke-width="1.5" opacity="0.3"/>
-          <path d="M46,110 C44,110 156,110 154,110" stroke="#B83A5C" stroke-width="1.5" opacity="0.3"/>
-          <line x1="100" y1="204" x2="100" y2="230" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="234" r="4" fill="#E8A430"/>
-        </svg>
-      </div>
+
+    <div class="panel light" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
       <div>
-        <ul class="cup-facts">
-          <li><span class="ck">✓</span> Made of soft medical grade silicone, not plastic or latex</li>
-          <li><span class="ck">✓</span> Sits low in the body and collects flow instead of absorbing it</li>
-          <li><span class="ck">✓</span> Can be worn for up to 12 hours before it needs emptying</li>
-          <li><span class="ck">✓</span> Rinsed with water between uses, sterilized in boiling water between cycles</li>
-          <li><span class="ck">✓</span> One cup replaces roughly 2,400 disposable pads over its lifetime</li>
-        </ul>
+        <div class="kicker" data-hi="पहला भाग, यह क्या है">Part one, what it is</div>
+        <svg viewBox="0 0 560 300" style="width:100%;height:auto" role="img" aria-label="Labelled diagram of a menstrual cup">
+        <ellipse cx="150" cy="60" rx="70" ry="15" fill="#B83A5C" opacity=".08"/><ellipse cx="150" cy="60" rx="70" ry="15" fill="none" stroke="#B83A5C" stroke-width="4"/>
+        <path d="M80,62 C74,130 90,195 128,222 C142,230 158,230 172,222 C210,195 226,130 220,62" fill="none" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/>
+        <path d="M94,186 C114,196 186,196 206,186" fill="none" stroke="#B83A5C" stroke-width="2" opacity=".4"/><path d="M102,199 C120,208 180,208 198,199" fill="none" stroke="#B83A5C" stroke-width="2" opacity=".4"/>
+        <line x1="150" y1="228" x2="150" y2="256" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/><circle cx="150" cy="260" r="5" fill="#E8A430"/>
+        <g stroke="#8C2C46" stroke-width="1" opacity=".45" fill="none"><path d="M220,54 L280,40"/><path d="M222,128 L280,122"/><path d="M206,192 L280,196"/><path d="M156,252 L280,260"/></g>
+        <g font-family="IBM Plex Mono, monospace" font-size="14" fill="#241C1A">
+          <text x="290" y="36" data-hi="किनारा">Rim</text><text x="290" y="54" fill="#5A4E48" font-size="12.5" data-hi="यही हिस्सा अंदर खुलता है">The part that unfolds</text>
+          <text x="290" y="118" data-hi="कटोरा">Body</text><text x="290" y="136" fill="#5A4E48" font-size="12.5" data-hi="जमा करता है, सोखता नहीं">Collects, does not absorb</text>
+          <text x="290" y="192" data-hi="पकड़ के छल्ले">Grip rings</text><text x="290" y="210" fill="#5A4E48" font-size="12.5" data-hi="निकालने के लिए यहाँ दबाएँ">Squeeze here to remove</text>
+          <text x="290" y="256" data-hi="डंडी">Stem</text><text x="290" y="274" fill="#5A4E48" font-size="12.5" data-hi="अंदर रहती है, महसूस नहीं होती">Stays inside, not felt</text>
+        </g>
+      </svg>
+      </div>
+      <div class="facts">
+        <img src="images/cup-in-hand.png" alt="A menstrual cup resting on an open palm, showing its real size" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin-bottom:12px;background:none">
+        <div><div class="k" data-hi="सामग्री">Material</div><div class="v" data-hi="नरम मेडिकल ग्रेड सिलिकॉन, प्लास्टिक नहीं, लेटेक्स नहीं">Soft medical grade silicone, no plastic, no latex</div></div>
+        <div><div class="k" data-hi="कितनी देर">Wear time</div><div class="v" data-hi="12 घंटे तक, पूरा स्कूल का दिन आराम से">Up to 12 hours, so a full school day is fine</div></div>
+        <div><div class="k" data-hi="सफ़ाई">Cleaning</div><div class="v" data-hi="हर बार पानी से धोएँ, हर चक्र के बाद उबालें">Rinse with water between uses, boil between cycles</div></div>
+        <div><div class="k" data-hi="कहाँ रहता है">Where it sits</div><div class="v" data-hi="नीचे और पीछे की ओर, टैम्पोन से भी नीचे">Low and towards the back, lower than a tampon</div></div>
+        <div><div class="k" data-hi="किसकी जगह">Replaces</div><div class="v" data-hi="अपने जीवनकाल में लगभग 2,400 डिस्पोज़ेबल पैड">Roughly 2,400 disposable pads over its lifetime</div></div>
       </div>
     </div>
 
-    <div class="fold-guide">
-      <div class="fold-guide-head">
-        <h3>Two ways to fold it for first insertion</h3>
-        <p>Every kit we hand out includes a printed version of this. Folding makes the rim narrow enough to insert comfortably, it opens back up on its own once inside.</p>
+    <div class="panel dark">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:34px">
+        <div style="max-width:580px">
+          <div class="kicker" data-hi="दूसरा भाग, मोड़ना">Part two, the fold</div>
+          <h3 style="font-size:1.75rem;margin-bottom:10px" data-hi="मोड़ने के तीन तरीके">Three folds, step by step</h3>
+          <p style="color:#D8CFC8" data-hi="मोड़ने से किनारा पतला हो जाता है और अंदर जाना आसान होता है, अंदर पहुँचकर कप खुद खुल जाता है। किसी भी मोड़ पर टैप करके देखें कि वह किसके लिए ठीक है।">Folding narrows the rim so it goes in easily, then it opens back out on its own once inside. Tap any fold to see who it suits best.</p>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:#8A7C74;text-transform:uppercase;line-height:1.6" data-hi="साइड से, नाप के अनुसार नहीं">Side view<br>Not to scale</div>
       </div>
-      <div class="fold-methods">
-        <div class="fold-method">
-          <h4>C-fold</h4>
-          <div class="fold-steps">
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/></svg>
-              <span>Start flat</span>
+      <div class="fold-cards">
+        <div class="fold-card" role="button" tabindex="0" data-fold="0" aria-selected="true">
+          <div class="sel"></div>
+          <div class="inner">
+            <div class="fold-head"><h4 data-hi="सी-फोल्ड">C-fold</h4><span data-hi="यहाँ से शुरू करें">Start here</span></div>
+            <div class="frames">
+              <div class="mini-col">
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M18,30 C15,68 28,96 44,108 C47,111 53,111 56,108 C72,96 85,68 82,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M26,46 C24,78 31,100 42,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="url(#rimInner)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="none" stroke="url(#siliconeRim)" stroke-width="5"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="1. खुला कप">1. Open cup</span></div>
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M24,30 C21,68 33,96 45,108 C48,111 52,111 55,108 C67,96 79,68 76,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M32,46 C30,78 36,100 45,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M24,30 C34,26 66,26 76,30" fill="none" stroke="url(#siliconeRim)" stroke-width="7" stroke-linecap="round"/><path d="M6,30 L18,30 M13,25 L19,30 L13,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M94,30 L82,30 M87,25 L81,30 L87,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="2. चपटा करें">2. Press flat</span></div>
+              </div>
+              <div class="frame big"><div class="bar"></div><div class="badge" data-hi="3. यही अंदर जाता है">3. This is what goes in</div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M30,30 C27,68 37,96 46,108 C48,111 52,111 54,108 C63,96 73,68 70,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M37,46 C35,78 40,100 46,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M30,30 C38,23 62,23 70,30" fill="none" stroke="url(#siliconeRim)" stroke-width="7" stroke-linecap="round"/><path d="M50,27 C46,54 47,84 50,104" fill="none" stroke="#8C2C46" stroke-width="5.5" stroke-linecap="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><div class="desc" data-hi="आधा मुड़ा, पतला सी आकार">Folded in half, a narrow C</div></div>
             </div>
-            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><path d="M28,8 A20,20 0 0 1 28,48 Z" fill="none" stroke="#B83A5C" stroke-width="3" stroke-linejoin="round"/></svg>
-              <span>Press in half</span>
+            <div class="fold-steps">
+              <div><span class="n">01</span><span class="s" data-hi="कप को खुले किनारे के साथ ऊपर की ओर पकड़ें">Hold the cup with the rim facing up, fully open</span></div>
+              <div><span class="n">02</span><span class="s" data-hi="किनारे को उँगली और अंगूठे के बीच चपटा दबाएँ">Press the rim flat between finger and thumb</span></div>
+              <div><span class="n">03</span><span class="s" data-hi="उस चपटे किनारे को आधा मोड़कर सी बनाएँ">Fold that flat rim over in half, into a C</span></div>
             </div>
-            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><ellipse cx="28" cy="28" rx="8" ry="20" fill="none" stroke="#E8A430" stroke-width="3"/></svg>
-              <span>Narrow C shape</span>
+            <div class="fold-meta">
+              <div><span class="k" data-hi="कठिनाई">Difficulty</span><span class="v" data-hi="सीखना सबसे आसान">Easiest to learn</span></div>
+              <div><span class="k" data-hi="किनारे की चौड़ाई">Rim width</span><span class="v" data-hi="मध्यम">Medium</span></div>
+              <div><span class="k" data-hi="किसके लिए">Best for</span><span class="v" data-hi="सबसे पहली कोशिश">A very first try</span></div>
             </div>
           </div>
         </div>
-        <div class="fold-method">
-          <h4>Punch down fold</h4>
-          <div class="fold-steps">
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/></svg>
-              <span>Start flat</span>
+        <div class="fold-card" role="button" tabindex="0" data-fold="1" aria-selected="false">
+          <div class="sel"></div>
+          <div class="inner">
+            <div class="fold-head"><h4 data-hi="पंच डाउन फोल्ड">Punch down</h4><span data-hi="सबसे पतला">Narrowest</span></div>
+            <div class="frames">
+              <div class="mini-col">
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M18,30 C15,68 28,96 44,108 C47,111 53,111 56,108 C72,96 85,68 82,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M26,46 C24,78 31,100 42,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="url(#rimInner)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="none" stroke="url(#siliconeRim)" stroke-width="5"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="1. खुला कप">1. Open cup</span></div>
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M24,30 C21,68 33,96 45,108 C48,111 52,111 55,108 C67,96 79,68 76,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M32,46 C30,78 36,100 45,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M24,30 C34,26 66,26 76,30" fill="none" stroke="url(#siliconeRim)" stroke-width="7" stroke-linecap="round"/><path d="M6,30 L18,30 M13,25 L19,30 L13,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M94,30 L82,30 M87,25 L81,30 L87,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="2. चपटा करें">2. Press flat</span></div>
+              </div>
+              <div class="frame big"><div class="bar"></div><div class="badge" data-hi="3. यही अंदर जाता है">3. This is what goes in</div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M24,30 C21,68 33,96 45,108 C48,111 52,111 55,108 C67,96 79,68 76,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M32,52 C30,80 36,100 45,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M24,30 C34,25 66,25 76,30" fill="none" stroke="url(#siliconeRim)" stroke-width="6" stroke-linecap="round"/><path d="M24,30 C33,56 44,64 50,48 C56,33 68,27 76,30" fill="#8C2C46" fill-opacity=".25" stroke="#8C2C46" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M6,64 L94,64" stroke="#E8A430" stroke-width="2.6" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><div class="desc" data-hi="किनारा अंदर दबा, नीचे वैसा ही">Rim pushed down inside, base stays full</div></div>
             </div>
-            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/><path d="M28,10 L28,28 L14,28" fill="none" stroke="#B83A5C" stroke-width="3" stroke-linecap="round"/></svg>
-              <span>Push one edge to center</span>
+            <div class="fold-steps">
+              <div><span class="n">01</span><span class="s" data-hi="कप को खुले किनारे के साथ ऊपर की ओर पकड़ें">Hold the cup with the rim facing up, fully open</span></div>
+              <div><span class="n">02</span><span class="s" data-hi="किनारे का एक हिस्सा अंदर दबाएँ, बस बिंदीदार लाइन के ऊपर तक, नीचे का हिस्सा वैसा ही रहता है">Push one point of the rim down inside, above the dotted line only, the base stays full</span></div>
+              <div><span class="n">03</span><span class="s" data-hi="किनारे दबाएँ, पतली नोक पहले अंदर जाती है">Squeeze the sides, the thin tip goes in first</span></div>
             </div>
-            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="fold-step">
-              <svg viewBox="0 0 56 56"><path d="M28,8 L44,44 L12,44 Z" fill="none" stroke="#E8A430" stroke-width="3" stroke-linejoin="round"/></svg>
-              <span>Slim pinched tip</span>
+            <div class="fold-meta">
+              <div><span class="k" data-hi="कठिनाई">Difficulty</span><span class="v" data-hi="मज़बूत पकड़ चाहिए">Needs a firm grip</span></div>
+              <div><span class="k" data-hi="किनारे की चौड़ाई">Rim width</span><span class="v" data-hi="सबसे छोटा">Smallest</span></div>
+              <div><span class="k" data-hi="किसके लिए">Best for</span><span class="v" data-hi="अगर सी-फोल्ड चौड़ा लगा">If the C-fold felt wide</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="fold-card" role="button" tabindex="0" data-fold="2" aria-selected="false">
+          <div class="sel"></div>
+          <div class="inner">
+            <div class="fold-head"><h4 data-hi="सेवन फोल्ड">Seven fold</h4><span data-hi="आसानी से खुलता है">Opens easily</span></div>
+            <div class="frames">
+              <div class="mini-col">
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M18,30 C15,68 28,96 44,108 C47,111 53,111 56,108 C72,96 85,68 82,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M26,46 C24,78 31,100 42,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="url(#rimInner)"/><ellipse cx="50" cy="30" rx="32" ry="9" fill="none" stroke="url(#siliconeRim)" stroke-width="5"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="1. खुला कप">1. Open cup</span></div>
+                <div class="frame"><div class="bar"></div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M24,30 C21,68 33,96 45,108 C48,111 52,111 55,108 C67,96 79,68 76,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M32,46 C30,78 36,100 45,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M24,30 C34,26 66,26 76,30" fill="none" stroke="url(#siliconeRim)" stroke-width="7" stroke-linecap="round"/><path d="M6,30 L18,30 M13,25 L19,30 L13,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M94,30 L82,30 M87,25 L81,30 L87,35" fill="none" stroke="#E8A430" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><span class="cap" data-hi="2. चपटा करें">2. Press flat</span></div>
+              </div>
+              <div class="frame big"><div class="bar"></div><div class="badge" data-hi="3. यही अंदर जाता है">3. This is what goes in</div><svg viewBox="0 0 100 136" aria-hidden="true"><path d="M24,30 C21,68 33,96 45,108 C48,111 52,111 55,108 C67,96 79,68 76,30 Z" fill="url(#siliconeBody)" stroke="#A83457" stroke-width="2" stroke-linejoin="round"/><path d="M32,52 C30,80 36,100 45,110" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42" filter="url(#softGlow)"/><path d="M24,30 C34,25 66,25 76,30" fill="none" stroke="url(#siliconeRim)" stroke-width="6" stroke-linecap="round"/><path d="M24,30 C40,44 58,54 76,27" fill="#8C2C46" fill-opacity=".22" stroke="#8C2C46" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M50,109 C49,116 51,122 50,128" fill="none" stroke="#C04A6C" stroke-width="3.4" stroke-linecap="round"/><circle cx="50" cy="130" r="3.4" fill="#E8A430"/></svg><div class="desc" data-hi="एक कोना किनारे के आर-पार मुड़ा">One corner folded across the rim</div></div>
+            </div>
+            <div class="fold-steps">
+              <div><span class="n">01</span><span class="s" data-hi="कप को खुले किनारे के साथ ऊपर की ओर पकड़ें">Hold the cup with the rim facing up, fully open</span></div>
+              <div><span class="n">02</span><span class="s" data-hi="किनारे को उँगली और अंगूठे के बीच चपटा दबाएँ">Press the rim flat between finger and thumb</span></div>
+              <div><span class="n">03</span><span class="s" data-hi="ऊपर का एक कोना नीचे तक मोड़ें, सात जैसा">Fold one top corner down to the base, like a 7</span></div>
+            </div>
+            <div class="fold-meta">
+              <div><span class="k" data-hi="कठिनाई">Difficulty</span><span class="v" data-hi="मध्यम">Medium</span></div>
+              <div><span class="k" data-hi="किनारे की चौड़ाई">Rim width</span><span class="v" data-hi="मध्यम">Medium</span></div>
+              <div><span class="k" data-hi="किसके लिए">Best for</span><span class="v" data-hi="जो कप जल्दी नहीं खुलते">Cups that won't pop open</span></div>
             </div>
           </div>
         </div>
       </div>
+      <div class="fold-tip">
+        <div class="who" id="tipName">C-fold</div>
+        <div class="what" id="tipText">The one we teach first. It is the simplest to hold and the easiest to feel confident about, so if this is your very first cycle with a cup, start here and do not worry about the others yet.</div>
+      </div>
+    </div>
+
+    <div class="side-by">
+      <div class="panel light" style="margin:0">
+        <div class="kicker" data-hi="तीसरा भाग, अंदर डालना">Part three, putting it in</div>
+        <h3 style="font-size:1.75rem;margin-bottom:26px" data-hi="पाँच कदम, इसी क्रम में">Five steps, in order</h3>
+        <div class="steps5">
+          <div><div class="n">01</div><div><div class="t" data-hi="हाथ और कप धोएँ">Wash your hands, and the cup</div><div class="d" data-hi="साधारण साबुन और साफ़ पानी काफ़ी है। किनारा गीला करने से अंदर जाना आसान होता है।">Plain soap and clean water is enough. Wetting the rim helps it slide in.</div></div></div>
+          <div><div class="n">02</div><div><div class="t" data-hi="पहले आराम से बैठें">Get comfortable first</div><div class="d" data-hi="कुर्सी के किनारे बैठें, उकड़ूँ बैठें, या एक पैर ऊपर रखकर खड़ी हों। तनाव में यह मुश्किल होता है, इसलिए एक गहरी साँस लें और धीरे-धीरे करें।">Sit on the edge of a seat, squat, or stand with one foot raised. Tense muscles make this harder, so take a breath and go slowly.</div></div></div>
+          <div><div class="n">03</div><div><div class="t" data-hi="मोड़ को कसकर पकड़ें">Hold the fold tightly</div><div class="d" data-hi="जब तक कप पूरा अंदर न जाए, मोड़ पकड़े रखें। अगर उँगलियों में ही खुल जाए तो कोई बात नहीं, फिर से मोड़ लें।">Keep it folded until it's fully in. If it springs open in your fingers, that's fine, just fold it again.</div></div></div>
+          <div><div class="n">04</div><div><div class="t" data-hi="पीछे की ओर डालें, ऊपर नहीं">Aim back, not up</div><div class="d" data-hi="इसे नीचे और रीढ़ की ओर ले जाएँ। यह टैम्पोन से नीचे बैठता है, इसलिए ज़्यादा अंदर जाने की ज़रूरत नहीं।">Guide it low and angled towards the base of your spine. It sits lower than a tampon, so it does not need to go far.</div></div></div>
+          <div><div class="n">05</div><div><div class="t" data-hi="इसे खुलने दें, फिर सील जाँचें">Let it open, then check the seal</div><div class="d" data-hi="किनारे पर उँगली घुमाकर देखें कि कहीं दबा नहीं है, या कप को आधा घुमाएँ। लीक न होने की वजह सही सील है।">Run a finger around the rim to feel for dents, or turn the cup a half circle. A good seal is what keeps it from leaking.</div></div></div>
+        </div>
+      </div>
+      <div class="panel plain" style="margin:0">
+        <div class="kicker" data-hi="सही हुआ या नहीं?">Did it work?</div>
+        <h3 style="font-size:1.45rem;margin-bottom:8px" data-hi="जो सही हो उस पर टिक करें">Tick off what's true</h3>
+        <p style="color:var(--ink-soft);font-size:.94rem;margin-bottom:20px"><span data-hi="पाँचों सही, तो कप ठीक से लगा है।">All five, and it's in properly.</span> <span style="font-family:'IBM Plex Mono',monospace;color:var(--berry-deep)"><span id="checkCount">0</span> / 5</span></p>
+        <div style="display:grid;gap:10px">
+          <button type="button" class="check" aria-pressed="false"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 6" stroke="#B83A5C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-hi="चलते या बैठते समय महसूस नहीं होता">I can't feel it when I walk or sit</span></button>
+          <button type="button" class="check" aria-pressed="false"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 6" stroke="#B83A5C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-hi="किनारा गोल लगता है, कहीं दबा नहीं">The rim feels round, with no dents</span></button>
+          <button type="button" class="check" aria-pressed="false"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 6" stroke="#B83A5C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-hi="घुमाने पर घूम जाता है, यानी सील बन गई">It turns when I twist it, so it's sealed</span></button>
+          <button type="button" class="check" aria-pressed="false"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 6" stroke="#B83A5C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-hi="डंडी पूरी अंदर है, कुछ बाहर नहीं">The stem is fully inside, nothing pokes out</span></button>
+          <button type="button" class="check" aria-pressed="false"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 6" stroke="#B83A5C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-hi="एक घंटा चलने-फिरने के बाद भी लीक नहीं">No leaking after an hour of moving around</span></button>
+        </div>
+        <div class="fineprint" data-hi="कुछ अब भी ठीक न लगे? वजह आमतौर पर सील होती है, नाप नहीं। निकालें, फिर से मोड़ें, और थोड़ा और पीछे की ओर डालें।">Something still feels off? It's usually the seal, not the size. Take it out, refold, and try aiming a little further back.</div>
+      </div>
+    </div>
+
+    <div class="panel plain" id="questions" style="margin-bottom:88px">
+      <div class="section-head" style="margin-bottom:34px">
+        <div class="kicker" data-hi="सबसे ज़्यादा पूछे जाने वाले सवाल">The worries we hear most</div>
+        <h3 style="font-size:1.75rem" data-hi="हर सत्र में यही सवाल आते हैं">Asked in every single session</h3>
+      </div>
+      <div class="card-grid">
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="क्या यह अंदर कहीं खो सकता है?">Can it get lost inside me?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="नहीं। यह योनि नली में रहता है, जो कुछ इंच लंबी बंद जगह है। इसके आगे जाने की कोई जगह ही नहीं है।">No. It stays in the vaginal canal, which is a closed space only a few inches long. There is nowhere else for it to go.</p></div>
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="दर्द होगा क्या?">Will it hurt?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="नहीं होना चाहिए। तकलीफ़ का मतलब लगभग हमेशा यही होता है कि मोड़ खुल गया, कोण बहुत सीधा था, या मांसपेशियाँ तनी हुई थीं। रुकें, साँस लें, फिर कोशिश करें।">It shouldn't. Discomfort almost always means the fold slipped, the angle was too upright, or the muscles were tense. Stop, breathe, and try again.</p></div>
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="कुँवारी लड़की इस्तेमाल कर सकती है?">Can I use it as a virgin?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="हाँ। कप अंदर पहना जाता है, और इसका इस्तेमाल निजी फ़ैसला है, इसका किसी और बात से कोई लेना-देना नहीं। हम सत्रों में यह खुलकर बताते हैं।">Yes. A cup is worn internally, and using one is a personal choice, not a statement about anything else. Our sessions cover this openly.</p></div>
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="घर में एकांत न हो तो?">What if there's no privacy at home?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="कप यहाँ मदद करता है, इसे दिन में दो बार ही खाली करना होता है, यानी सुबह और रात, स्कूल के समय में नहीं।">A cup helps here, it only needs emptying twice a day, so you can manage it morning and night rather than during school hours.</p></div>
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="इसे पहनकर सो और खेल सकते हैं?">Can I sleep and play with it in?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="हाँ, पूरी रात और खेल के दौरान भी। जब तक सील ठीक है, कुछ हिलता नहीं।">Yes, all night and through sport. Nothing shifts as long as the seal is good.</p></div>
+        <div><div style="font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:8px" data-hi="गलत हो गया तो?">What if I get it wrong?</div><p style="color:var(--ink-soft);font-size:.94rem" data-hi="कुछ बिगड़ता नहीं। ज़्यादातर लोगों को आदत पड़ने में दो-तीन चक्र लगते हैं, और यह पूरी तरह सामान्य है।">Nothing breaks. Most people need two or three cycles before it feels routine, and that is completely normal.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="process" id="process">
+<section id="process" class="blush">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">How it runs</div>
-      <h2>Three steps, same order every time</h2>
+      <div class="kicker" data-hi="यह कैसे चलता है">How it runs</div>
+      <h2 data-hi="तीन कदम, हर बार इसी क्रम में">Three steps, same order every time</h2>
     </div>
     <div class="card-grid">
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 14L24 6L40 14L24 22L8 14Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 20V32C14 32 18 37 24 37C30 37 34 32 34 32V20" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14V26" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-        <h3>Get into the room</h3>
-        <p>We partner directly with a school or a community group willing to give us an hour with their girls or women, no middlemen, no paperwork chain.</p>
-      </div>
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 18 12 27C12 34 17.4 39 24 39C30.6 39 36 34 36 27C36 18 24 5 24 5Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 27C18 27 19 32 24 32" stroke="#E8A430" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-        <h3>Say it plainly</h3>
-        <p>Biology, hygiene, what's normal and what isn't, delivered without euphemism, in whatever language the room actually speaks.</p>
-      </div>
-      <div class="card">
-        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="14" y="10" width="20" height="30" rx="3" stroke="#B83A5C" stroke-width="2.2"/><path d="M20 4H28" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round"/><path d="M24 4V10" stroke="#B83A5C" stroke-width="2.2"/><path d="M19 24C19 21 21 19 24 19C27 19 29 21 29 24C29 27 24 32 24 32C24 32 19 27 19 24Z" fill="#E8A430"/></svg></div>
-        <h3>Leave real supply</h3>
-        <p>Every session ends with menstrual cups going home with the people in that room, not a pamphlet, not a promise for later.</p>
-      </div>
+      <div class="card"><div class="num">01</div><h3 data-hi="कमरे तक पहुँचना">Get into the room</h3><p data-hi="हम सीधे किसी स्कूल या समुदाय समूह से जुड़ते हैं जो अपनी लड़कियों या महिलाओं के साथ हमें एक घंटा दे सके, कोई बिचौलिया नहीं, कागज़ों की कतार नहीं।">We partner directly with a school or a community group willing to give us an hour with their girls or women, no middlemen, no paperwork chain.</p></div>
+      <div class="card"><div class="num">02</div><h3 data-hi="सीधी बात करना">Say it plainly</h3><p data-hi="शरीर की बात, सफ़ाई की बात, क्या सामान्य है और क्या नहीं, घुमा-फिराकर नहीं, उसी भाषा में जो कमरे में बोली जाती है।">Biology, hygiene, what's normal and what isn't, delivered without euphemism, in whatever language the room actually speaks.</p></div>
+      <div class="card"><div class="num">03</div><h3 data-hi="सामान देकर आना">Leave real supply</h3><p data-hi="हर सत्र के अंत में कमरे में बैठे लोग कप लेकर घर जाते हैं, कोई पर्चा नहीं, बाद का कोई वादा नहीं।">Every session ends with menstrual cups going home with the people in that room, not a pamphlet, not a promise for later.</p></div>
     </div>
   </div>
 </section>
 
-<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
+<div class="rule"></div>
 
-<section class="work" id="work">
+<section id="work">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">On the ground</div>
-      <h2>What a session actually looks like</h2>
-      <p>Two moments from recent outreach, one mid conversation, one right after supplies went out.</p>
+      <div class="kicker" data-hi="ज़मीन पर">On the ground</div>
+      <h2 data-hi="सत्र असल में कैसा दिखता है">What a session actually looks like</h2>
+      <p data-hi="हाल के दो पल, एक बातचीत के बीच का, एक सामान बँटने के तुरंत बाद का।">Two moments from recent outreach, one mid conversation, one right after supplies went out.</p>
     </div>
     <div class="photo-block">
-      <div class="pb-img"><img src="images/session.jpg" alt="Girls seated on a mat during a BleedBOLD school awareness session"></div>
-      <div class="pb-text">
-        <div class="pb-tag">School session</div>
-        <h3>Straight talk, no euphemisms</h3>
-        <p>We sit with students in their own school courtyard and walk through what's actually happening in their bodies, what's normal, and what to do about pain, irregularity, and hygiene, in language they'd use with each other.</p>
+      <div class="img"><img src="images/session.jpg" alt="Girls seated on a mat during a BleedBOLD school awareness session"></div>
+      <div class="txt">
+        <div class="tag" data-hi="स्कूल सत्र">School session</div>
+        <h3 data-hi="सीधी बात, कोई लाग-लपेट नहीं">Straight talk, no euphemisms</h3>
+        <p data-hi="हम छात्राओं के साथ उनके ही स्कूल के आँगन में बैठते हैं और बताते हैं कि शरीर में असल में क्या हो रहा है, क्या सामान्य है, और दर्द, अनियमितता और सफ़ाई का क्या करना है, उसी भाषा में जो वे आपस में बोलती हैं।">We sit with students in their own school courtyard and walk through what's actually happening in their bodies, what's normal, and what to do about pain, irregularity, and hygiene, in language they'd use with each other.</p>
       </div>
     </div>
-    <div class="photo-block reverse">
-      <div class="pb-img"><img src="images/distribution.jpg" alt="Women and girls at a community gathering holding up menstrual cups distributed by BleedBOLD"></div>
-      <div class="pb-text">
-        <div class="pb-tag">Community distribution</div>
-        <h3>Education backed by supplies</h3>
-        <p>Talking about periods openly matters, but it doesn't fix an empty shelf at home. Every session we run is paired with a menstrual cup distribution round so families leave with something reusable that lasts years, not a monthly cost.</p>
+    <div class="photo-block">
+      <div class="txt">
+        <div class="tag" data-hi="समुदाय में वितरण">Community distribution</div>
+        <h3 data-hi="जानकारी के साथ सामान भी">Education backed by supplies</h3>
+        <p data-hi="पीरियड्स पर खुलकर बात ज़रूरी है, पर उससे घर की खाली अलमारी नहीं भरती। हमारे हर सत्र के साथ कप वितरण होता है, ताकि परिवार सालों चलने वाली चीज़ लेकर जाएँ, हर महीने का खर्च नहीं।">Talking about periods openly matters, but it doesn't fix an empty shelf at home. Every session we run is paired with a menstrual cup distribution round so families leave with something reusable that lasts years, not a monthly cost.</p>
       </div>
+      <div class="img"><img src="images/distribution.jpg" alt="Women and girls holding up menstrual cups distributed by BleedBOLD"></div>
     </div>
   </div>
 </section>
 
-<section class="donate" id="donate">
+<section id="donate" class="donate">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Chip in</div>
-      <h2>Fund the next session</h2>
-      <p>BleedBOLD isn't registered as a nonprofit yet, so there's no tax receipt to offer right now. Every rupee still goes straight into sessions and supplies, not overhead.</p>
+      <div class="kicker" data-hi="सहयोग करें">Chip in</div>
+      <h2 data-hi="अगले सत्र का खर्च उठाएँ">Fund the next session</h2>
+      <p data-hi="BleedBOLD अभी गैर-लाभकारी संस्था के रूप में पंजीकृत नहीं है, इसलिए फ़िलहाल टैक्स रसीद नहीं दे सकते। हर रुपया सीधे सत्रों और सामान में जाता है, दफ़्तर के खर्च में नहीं।">BleedBOLD isn't registered as a nonprofit yet, so there's no tax receipt to offer right now. Every rupee still goes straight into sessions and supplies, not overhead.</p>
     </div>
     <div class="donate-grid">
-      <div class="donate-copy">
-        <div class="price-compare">
-          <div class="price-col">
-            <div class="price-label">Retail, one cup</div>
-            <div class="price-bar retail"><span>₹250 to ₹500</span></div>
-          </div>
-          <div class="price-col">
-            <div class="price-label">Our manufacturer rate</div>
-            <div class="price-bar cost"><span>₹50</span></div>
-          </div>
+      <div>
+        <div class="price">
+          <div><div class="l" data-hi="दुकान पर एक कप">Retail, one cup</div><div class="bar retail">₹250 to ₹500</div></div>
+          <div><div class="l" data-hi="हमारा निर्माता रेट">Our manufacturer rate</div><div class="bar cost">₹50</div></div>
         </div>
-        <p>We negotiated directly with the manufacturer, so every rupee you give funds a lot more than it would buying cups off a shelf.</p>
-        <ul class="donate-list">
-          <li><span class="n">₹50</span> One menstrual cup, at cost</li>
-          <li><span class="n">₹1,000</span> Cups for a full classroom, 20 girls</li>
-          <li><span class="n">₹4,000</span> Cups plus a full community distribution round</li>
-        </ul>
+        <p data-hi="हमने सीधे निर्माता से बात की है, इसलिए आपका हर रुपया दुकान से कप खरीदने के मुक़ाबले कई गुना ज़्यादा काम करता है।">We negotiated directly with the manufacturer, so every rupee you give funds a lot more than it would buying cups off a shelf.</p>
+        <div class="trust">
+          <div><span class="n">01</span><span data-hi="हम निर्माता रेट पर खरीदते हैं, इसलिए ₹50 में पूरा एक कप आता है, आधा नहीं।">We buy at the manufacturer rate, so ₹50 is one whole cup, not part of one.</span></div>
+          <div><span class="n">02</span><span data-hi="हर कप किट में जाने से पहले स्त्री रोग विशेषज्ञ जाँचती हैं।">Every cup is checked by a gynecologist before it goes into a kit.</span></div>
+          <div><span class="n">03</span><span data-hi="कोई दफ़्तर नहीं, कोई तनख़्वाह नहीं, इसलिए बीच में कुछ कटता नहीं।">There is no office and no salaries, so nothing is taken out along the way.</span></div>
+        </div>
       </div>
       <div class="donate-card">
-        <div class="kicker">Pay by UPI</div>
-        <h3>Scan or send directly</h3>
-        <div class="upi-box">
-          UPI ID: [add your UPI ID here]<br>
-          QR code: [drop QR image here]
+        <div class="kicker" data-hi="UPI से भेजें">Pay by UPI</div>
+        <h3 data-hi="राशि चुनें">Pick an amount</h3>
+        <div class="sub" data-hi="ज़्यादातर लोग ₹1,000 देते हैं, जिससे पूरी कक्षा का इंतज़ाम हो जाता है।">Most people give ₹1,000, which covers a whole classroom.</div>
+        <div class="amts">
+          <button type="button" data-amt="50" aria-pressed="false">₹50</button>
+          <button type="button" data-amt="500" aria-pressed="false">₹500</button>
+          <button type="button" data-amt="1000" aria-pressed="true">₹1,000</button>
+          <button type="button" data-amt="4000" aria-pressed="false">₹4,000</button>
         </div>
-        <p>Works with Google Pay, PhonePe, and Paytm. Funds land directly in the founder's account, transparently, until BleedBOLD completes formal registration.</p>
-        <a href="#contact" class="btn gold" style="margin-top:6px;">International? Email us</a>
-        <div class="intl-note">
-          Outside India? UPI won't work for you directly. Email <a href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com</a> and we'll sort out a way for you to contribute.
+        <div class="buys"><span class="k" data-hi="इससे">Buys</span><span class="v" id="buys"></span></div>
+        <a class="upi-go" id="upiGo" href="#"><span data-hi="अपना UPI ऐप खोलें">Open my UPI app</span> <span style="font-family:'IBM Plex Mono',monospace" id="upiAmt">₹1,000</span></a>
+        <div class="upi-note" data-hi="फ़ोन पर यह GPay, PhonePe या Paytm को राशि भरकर खोल देता है।">On a phone this opens GPay, PhonePe or Paytm with the amount filled in.</div>
+        <div class="qr">
+          <img src="images/upi-qr.png" alt="UPI QR code for utkarshachourasiya13@oksbi">
+          <div>
+            <div class="k" data-hi="लैपटॉप पर इसे स्कैन करें">On a laptop, scan this</div>
+            <div class="id">utkarshachourasiya13@oksbi</div>
+            <button type="button" id="copyId" data-hi="UPI आईडी कॉपी करें">Copy UPI ID</button>
+          </div>
+        </div>
+        <div class="fineprint">
+          <span data-hi="पंजीकरण पूरा होने तक पैसा सीधे संस्थापक के खाते में जाता है, इसलिए अभी टैक्स रसीद नहीं है। भारत के बाहर से भेजना है? ईमेल करें">Money lands directly in the founder's account until BleedBOLD is formally registered, so there's no tax receipt yet. Outside India? Email</span>
+          <a href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <div class="kicker">Get in touch</div>
-        <h2>Questions, partnerships, volunteering</h2>
-        <p style="color:var(--ink-soft);margin-top:16px;max-width:420px;">Whether you run a school, want to volunteer at a session, or just want to know more before you support us, send a note directly.</p>
-      </div>
-      <div class="contact-card">
-        <h3>Say hello</h3>
-        <p>We read and reply to everything ourselves.</p>
-        <a class="email-link" href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com →</a>
-      </div>
+<section id="contact">
+  <div class="wrap two-col" style="align-items:center">
+    <div>
+      <div class="kicker" data-hi="संपर्क करें">Get in touch</div>
+      <h2 data-hi="सवाल, साझेदारी, स्वयंसेवा">Questions, partnerships, volunteering</h2>
+      <p style="color:var(--ink-soft);margin-top:16px;max-width:440px" data-hi="आप स्कूल चलाते हों, किसी सत्र में मदद करना चाहते हों, या सहयोग से पहले और जानना चाहते हों, सीधे लिख भेजें।">Whether you run a school, want to volunteer at a session, or just want to know more before you support us, send a note directly.</p>
+    </div>
+    <div class="contact-card">
+      <h3 data-hi="नमस्ते कहें">Say hello</h3>
+      <p data-hi="हम हर संदेश खुद पढ़ते और जवाब देते हैं।">We read and reply to everything ourselves.</p>
+      <a class="email" href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com →</a>
     </div>
   </div>
 </section>
@@ -531,25 +556,91 @@
     <div class="footer-grid">
       <div>
         <div class="wordmark">bleed<em>BOLD</em></div>
-        <p class="footer-tag">Menstrual health education and menstrual cup access, built from Mount Abu, Rajasthan.</p>
+        <p class="footer-tag" data-hi="मासिक धर्म शिक्षा और मेंस्ट्रुअल कप की पहुँच, माउंट आबू, राजस्थान से।">Menstrual health education and menstrual cup access, built from Mount Abu, Rajasthan.</p>
       </div>
       <ul class="footer-links">
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#donate">Donate</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#mission" data-hi="मिशन">Mission</a></li>
+        <li><a href="#first-time" data-hi="पहली बार">First time</a></li>
+        <li><a href="#work" data-hi="हमारा काम">Our work</a></li>
+        <li><a href="#donate" data-hi="सहयोग करें">Donate</a></li>
+        <li><a href="#contact" data-hi="संपर्क">Contact</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">© 2026 BleedBOLD. Built with care, not incorporated yet.</div>
+    <div class="footer-bottom" data-hi="© 2026 BleedBOLD. मन से बनाया गया, अभी पंजीकृत नहीं।">© 2026 BleedBOLD. Built with care, not incorporated yet.</div>
   </div>
 </footer>
 
 <script>
-  const toggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('navlinks');
-  toggle.addEventListener('click', () => nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-</script>
+(function(){
+  var UPI = "utkarshachourasiya13@oksbi";
+  var nodes = document.querySelectorAll("[data-hi]");
+  nodes.forEach(function(n){ n.setAttribute("data-en", n.innerHTML); });
 
+  var tips = [{"name":"C-fold","nameHi":"सी-फोल्ड","tip":"The one we teach first. It is the simplest to hold and the easiest to feel confident about, so if this is your very first cycle with a cup, start here and do not worry about the others yet.","tipHi":"यही हम सबसे पहले सिखाते हैं। पकड़ना सबसे आसान है और भरोसा जल्दी आता है, इसलिए अगर कप के साथ यह आपका पहला चक्र है, यहीं से शुरू करें, बाकी की चिंता अभी न करें।"},{"name":"Punch down","nameHi":"पंच डाउन फोल्ड","tip":"The narrowest tip of the three, which helps a lot if the C-fold felt too wide going in. It needs a firmer grip, so practise the fold a few times in your hand before you use it.","tipHi":"तीनों में सबसे पतली नोक, जो तब बहुत काम आती है जब सी-फोल्ड चौड़ा लगे। पकड़ मज़बूत चाहिए, इसलिए इस्तेमाल से पहले हाथ में दो-तीन बार मोड़कर देख लें।"},{"name":"Seven fold","nameHi":"सेवन फोल्ड","tip":"A middle ground. It keeps a small tip but springs open more readily than the punch down, which helps if you have had a cup stay folded inside.","tipHi":"बीच का रास्ता। नोक छोटी रहती है पर पंच डाउन से जल्दी खुल जाता है, जो तब मदद करता है जब कप अंदर मुड़ा ही रह जाए।"}];
+  var amounts = {
+    50:  ["One menstrual cup, at the price we actually pay for it.", "एक मेंस्ट्रुअल कप, उसी दाम पर जो हम देते हैं।"],
+    500: ["Ten cups, roughly half a school session.", "दस कप, यानी लगभग आधा स्कूल सत्र।"],
+    1000:["A full classroom of 20 girls, cups for all of them.", "पूरी कक्षा, बीस लड़कियों के लिए कप।"],
+    4000:["Cups plus a whole community distribution round, start to finish.", "कप और पूरा समुदाय वितरण, शुरू से आख़िर तक।"]
+  };
+  var lang = localStorage.getItem("bb-lang") === "hi" ? "hi" : "en";
+  var amt = 1000, fold = 0;
+  function money(v){ return "₹" + v.toLocaleString("en-IN"); }
+
+  function paint(){
+    document.documentElement.setAttribute("lang", lang);
+    nodes.forEach(function(n){
+      n.innerHTML = lang === "hi" ? n.getAttribute("data-hi") : n.getAttribute("data-en");
+    });
+    document.getElementById("langEn").setAttribute("aria-pressed", lang === "en");
+    document.getElementById("langHi").setAttribute("aria-pressed", lang === "hi");
+    var t = tips[fold];
+    document.getElementById("tipName").textContent = lang === "hi" ? t.nameHi : t.name;
+    document.getElementById("tipText").textContent = lang === "hi" ? t.tipHi : t.tip;
+    document.getElementById("buys").textContent = amounts[amt][lang === "hi" ? 1 : 0];
+    document.getElementById("upiAmt").textContent = money(amt);
+    document.getElementById("upiGo").href = "upi://pay?pa=" + UPI + "&pn=BleedBOLD&cu=INR&am=" + amt + "&tn=BleedBOLD%20donation";
+  }
+
+  document.getElementById("langEn").addEventListener("click", function(){ lang = "en"; localStorage.setItem("bb-lang", lang); paint(); });
+  document.getElementById("langHi").addEventListener("click", function(){ lang = "hi"; localStorage.setItem("bb-lang", lang); paint(); });
+
+  document.querySelectorAll("[data-fold]").forEach(function(card){
+    function pick(){
+      fold = parseInt(card.getAttribute("data-fold"), 10);
+      document.querySelectorAll("[data-fold]").forEach(function(c){ c.setAttribute("aria-selected", c === card); });
+      paint();
+    }
+    card.addEventListener("click", pick);
+    card.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+  });
+
+  document.querySelectorAll("[data-amt]").forEach(function(b){
+    b.addEventListener("click", function(){
+      amt = parseInt(b.getAttribute("data-amt"), 10);
+      document.querySelectorAll("[data-amt]").forEach(function(x){ x.setAttribute("aria-pressed", x === b); });
+      paint();
+    });
+  });
+
+  var count = document.getElementById("checkCount");
+  document.querySelectorAll(".check").forEach(function(c){
+    c.addEventListener("click", function(){
+      c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") !== "true");
+      count.textContent = document.querySelectorAll('.check[aria-pressed="true"]').length;
+    });
+  });
+
+  var copy = document.getElementById("copyId");
+  copy.addEventListener("click", function(){
+    if (navigator.clipboard) { navigator.clipboard.writeText(UPI); }
+    var en = copy.getAttribute("data-en"), hi = copy.getAttribute("data-hi");
+    copy.textContent = lang === "hi" ? "कॉपी हो गया" : "Copied";
+    setTimeout(function(){ copy.innerHTML = lang === "hi" ? hi : en; }, 1800);
+  });
+
+  paint();
+})();
+</script>
 </body>
 </html>
