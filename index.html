@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BleedBOLD, period dignity in Rajasthan</title>
+<meta name="description" content="BleedBOLD runs menstrual health sessions and menstrual cup distribution in schools and communities across Rajasthan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --berry:#B83A5C;
+    --berry-deep:#8C2C46;
+    --marigold:#E8A430;
+    --marigold-deep:#C4870F;
+    --ink:#241C1A;
+    --ink-soft:#5A4E48;
+    --paper:#FBF6EC;
+    --blush:#F7E6E2;
+    --sand-deep:#E9DEC6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  section{padding:88px 0;}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:14px;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,3.2vw,2.6rem);letter-spacing:-0.01em;line-height:1.12;}
+  .section-head p{margin-top:16px;color:var(--ink-soft);font-size:1.05rem;}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--sand-deep);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
+  .wordmark{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:-0.01em;}
+  .wordmark em{font-style:italic;color:var(--berry);}
+  .navlinks{display:flex;align-items:center;gap:28px;list-style:none;font-size:0.9rem;font-weight:500;}
+  .navlinks a{text-decoration:none;position:relative;padding-bottom:4px;}
+  .navlinks a:not(.cta)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--berry);transition:width 0.25s ease;}
+  .navlinks a:not(.cta):hover::after{width:100%;}
+  .navlinks a.cta{background:var(--marigold);color:var(--ink);padding:10px 20px;border-radius:100px;font-weight:600;}
+  .navlinks a.cta:hover{background:var(--marigold-deep);}
+  .menu-toggle{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink);}
+
+  /* Buttons */
+  .btn{display:inline-block;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:background 0.15s ease, transform 0.15s ease;}
+  .btn.gold{background:var(--marigold);color:var(--ink);}
+  .btn.gold:hover{background:var(--marigold-deep);transform:translateY(-1px);}
+  .btn.outline{border:1.5px solid var(--ink);color:var(--ink);}
+  .btn.outline:hover{background:var(--ink);color:var(--paper);}
+
+  /* Hero */
+  .hero{padding:76px 32px 0;position:relative;overflow:hidden;}
+  .blob{position:absolute;border-radius:50%;z-index:0;pointer-events:none;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:22px;display:flex;align-items:center;gap:12px;position:relative;z-index:2;}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--berry);}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:1.06;letter-spacing:-0.015em;max-width:760px;position:relative;z-index:2;}
+  h1 em{font-style:italic;font-weight:600;color:var(--berry);}
+  .lede{color:var(--ink-soft);font-size:1.14rem;max-width:480px;margin-top:26px;line-height:1.6;position:relative;z-index:2;}
+  .cta-row{display:flex;gap:16px;margin-top:36px;position:relative;z-index:2;flex-wrap:wrap;}
+
+  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;position:relative;z-index:2;}
+  .stat-strip > div{padding:26px 22px;}
+  .stat-strip > div:nth-child(1){background:var(--ink);}
+  .stat-strip > div:nth-child(2){background:var(--berry);}
+  .stat-strip > div:nth-child(3){background:var(--marigold);}
+  .stat-strip .n{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:1.9rem;}
+  .stat-strip > div:nth-child(1) .n{color:var(--marigold);}
+  .stat-strip > div:nth-child(2) .n{color:#fff;}
+  .stat-strip > div:nth-child(3) .n{color:var(--ink);}
+  .stat-strip .l{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;margin-top:4px;}
+  .stat-strip > div:nth-child(1) .l{color:#D8CFC8;}
+  .stat-strip > div:nth-child(2) .l{color:#F5D9E0;}
+  .stat-strip > div:nth-child(3) .l{color:#5A4310;}
+
+  .photo-row{display:grid;grid-template-columns:0.9fr 1.1fr;gap:24px;padding:64px 0 76px;position:relative;z-index:2;align-items:end;}
+  .photo-row img{width:100%;object-fit:cover;}
+  .arch-photo img{aspect-ratio:3/4;clip-path:url(#archClip);}
+  .tilt2{aspect-ratio:1/1;border-radius:20px;transform:rotate(1.6deg);}
+
+  /* Block print divider */
+  .print-strip{width:100%;height:44px;display:block;}
+  .print-strip rect{fill:url(#butaStrip);}
+
+  /* Founder / quote strip */
+  .quote-strip{background:var(--ink);padding:52px 32px;position:relative;overflow:hidden;}
+  .quote-strip .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .quote{font-family:'Fraunces',serif;font-style:italic;font-weight:600;color:var(--paper);font-size:1.55rem;max-width:600px;line-height:1.4;}
+  .founder-pic{display:flex;align-items:center;gap:18px;}
+  .founder-pic img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--marigold);flex-shrink:0;}
+  .founder-meta{display:flex;flex-direction:column;gap:4px;}
+  .founder-name{font-weight:600;color:var(--paper);font-size:0.95rem;}
+  .founder-role{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--marigold);text-transform:uppercase;letter-spacing:0.04em;}
+
+  /* Mission */
+  .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .mission-grid p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem;}
+  .mission-grid p strong{color:var(--ink);font-weight:600;}
+  .pull{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.5rem;line-height:1.4;color:var(--ink);border-left:3px solid var(--berry);padding-left:24px;}
+
+  /* Card grids, reused for why-cup, process, fold guide */
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .card{background:var(--paper);border:1px solid var(--sand-deep);padding:30px 26px;border-radius:16px;}
+  .card .p-icon{width:44px;height:44px;margin-bottom:18px;}
+  .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin-bottom:10px;}
+  .card p{color:var(--ink-soft);font-size:0.92rem;}
+  .why-cup{background:var(--blush);}
+  .process{background:var(--paper);}
+
+  /* Meet the cup section */
+  .meet-cup{background:var(--paper);}
+  .cup-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:center;}
+  .cup-illustration{background:var(--blush);border-radius:24px;padding:40px;display:flex;align-items:center;justify-content:center;}
+  .cup-facts{list-style:none;}
+  .cup-facts li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--sand-deep);font-size:0.96rem;color:var(--ink-soft);}
+  .cup-facts li:last-child{border-bottom:1px solid var(--sand-deep);}
+  .cup-facts .ck{color:var(--berry);flex-shrink:0;}
+
+  .fold-guide{margin-top:64px;}
+  .fold-guide-head{margin-bottom:32px;}
+  .fold-guide-head h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:8px;}
+  .fold-guide-head p{color:var(--ink-soft);font-size:0.95rem;max-width:560px;}
+  .fold-methods{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .fold-method{background:var(--paper);border:1px solid var(--sand-deep);border-radius:16px;padding:28px;}
+  .fold-method h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;margin-bottom:18px;}
+  .fold-steps{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+  .fold-step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;}
+  .fold-step svg{width:56px;height:56px;}
+  .fold-step span{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);text-align:center;}
+  .fold-arrow{color:var(--sand-deep);flex-shrink:0;}
+
+  /* Photo blocks, Our Work */
+  .work{background:var(--blush);}
+  .photo-block{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--paper);border:1px solid var(--sand-deep);border-radius:16px;margin-bottom:24px;overflow:hidden;}
+  .photo-block:last-child{margin-bottom:0;}
+  .photo-block.reverse .pb-text{order:2;}
+  .photo-block.reverse .pb-img{order:1;}
+  .pb-img{position:relative;min-height:320px;}
+  .pb-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .pb-text{padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .pb-tag{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:12px;}
+  .pb-text h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:14px;line-height:1.2;}
+  .pb-text p{color:var(--ink-soft);font-size:0.96rem;}
+
+  /* Donate */
+  .donate{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;}
+  .donate .kicker{color:var(--marigold);}
+  .donate h2{color:var(--paper);}
+  .donate .section-head p{color:#D8CFC8;}
+  .donate-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  .price-compare{display:flex;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+  .price-col{flex:1;min-width:170px;}
+  .price-label{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#D8CFC8;margin-bottom:8px;}
+  .price-bar{border-radius:10px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:1rem;}
+  .price-bar.retail{background:rgba(255,255,255,0.1);color:#D8CFC8;text-decoration:line-through;text-decoration-color:rgba(216,207,200,0.5);}
+  .price-bar.cost{background:var(--marigold);color:var(--ink);}
+  .donate-copy p{color:#D8CFC8;margin-bottom:16px;font-size:1.02rem;}
+  .donate-list{list-style:none;margin-top:20px;}
+  .donate-list li{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.16);font-size:0.95rem;color:#F3EDE6;}
+  .donate-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.16);}
+  .donate-list .n{font-family:'IBM Plex Mono',monospace;color:var(--marigold);font-weight:500;}
+  .donate-card{background:var(--paper);color:var(--ink);border-radius:16px;padding:34px;}
+  .donate-card .kicker{color:var(--berry-deep);}
+  .donate-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;margin-bottom:14px;}
+  .upi-box{border:1.5px dashed var(--sand-deep);border-radius:10px;padding:18px;margin:18px 0;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;color:var(--ink-soft);}
+  .donate-card p{font-size:0.9rem;color:var(--ink-soft);margin-bottom:10px;}
+  .intl-note{margin-top:20px;padding-top:18px;border-top:1px solid var(--sand-deep);font-size:0.87rem;color:var(--ink-soft);}
+  .intl-note a{color:var(--berry);font-weight:600;text-decoration:none;}
+  .intl-note a:hover{text-decoration:underline;}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .contact-card{background:var(--blush);border:1px solid var(--sand-deep);border-radius:16px;padding:40px;}
+  .contact-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin-bottom:14px;}
+  .contact-card p{color:var(--ink-soft);margin-bottom:22px;}
+  .email-link{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:1.02rem;font-weight:500;color:var(--berry-deep);text-decoration:none;border-bottom:1.5px solid var(--berry);padding-bottom:3px;}
+  .email-link:hover{color:var(--berry);}
+
+  /* Footer */
+  footer{background:var(--ink);color:var(--paper);padding:48px 0 28px;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;}
+  footer .wordmark{color:var(--paper);}
+  footer .wordmark em{color:var(--marigold);}
+  .footer-tag{color:#B9ACA4;font-size:0.9rem;margin-top:10px;max-width:300px;}
+  .footer-links{display:flex;gap:26px;list-style:none;font-size:0.9rem;}
+  .footer-links a{text-decoration:none;color:#DACFC8;}
+  .footer-links a:hover{color:var(--paper);}
+  .footer-bottom{margin-top:36px;padding-top:22px;border-top:1px solid #3A312D;font-size:0.8rem;color:#8A7C74;}
+
+  @media (max-width:860px){
+    .navlinks{position:fixed;top:66px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:22px 32px;gap:16px;border-bottom:1px solid var(--sand-deep);transform:translateY(-130%);transition:transform 0.25s ease;}
+    .navlinks.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+    .stat-strip{grid-template-columns:1fr;}
+    .photo-row{grid-template-columns:1fr;}
+    .arch-photo img{aspect-ratio:4/5;}
+    .tilt2{margin-top:0;}
+    .mission-grid{grid-template-columns:1fr;gap:32px;}
+    .card-grid{grid-template-columns:1fr;}
+    .cup-grid{grid-template-columns:1fr;}
+    .fold-methods{grid-template-columns:1fr;}
+    .photo-block, .photo-block.reverse{grid-template-columns:1fr;}
+    .photo-block.reverse .pb-text{order:1;}
+    .photo-block.reverse .pb-img{order:2;}
+    .pb-img{min-height:240px;}
+    .donate-grid{grid-template-columns:1fr;}
+    .price-compare{flex-direction:column;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.5 C0,0.368 0.0667,0.316 0.1333,0.237 C0.183,0.171 0.2,0.105 0.25,0.0658 C0.3,0.0263 0.3667,0 0.5,0 C0.6333,0 0.7,0.0263 0.75,0.0658 C0.8,0.105 0.8167,0.171 0.8667,0.237 C0.9333,0.316 1,0.368 1,0.5 L1,1 Z"/>
+    </clipPath>
+    <pattern id="butaStrip" width="64" height="44" patternUnits="userSpaceOnUse">
+      <rect width="64" height="44" fill="#FBF6EC"/>
+      <path d="M32,8 C24,8 18,15 18,23 C18,31 25,36 32,36 C36,36 36,29 32,25 C29,22 29,15 34,12 C36,10.5 35,8 32,8 Z" fill="#B83A5C" opacity="0.85"/>
+      <circle cx="10" cy="22" r="2.5" fill="#E8A430"/>
+      <circle cx="54" cy="22" r="2.5" fill="#E8A430"/>
+    </pattern>
+    <pattern id="bandhaniDots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="2" fill="#E8A430" opacity="0.5"/>
+      <circle cx="18" cy="18" r="2" fill="#E8A430" opacity="0.5"/>
+    </pattern>
+  </defs>
+</svg>
+
+<header>
+  <nav class="nav">
+    <div class="wordmark">bleed<em>BOLD</em></div>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#why-cup">Why A Cup</a></li>
+      <li><a href="#meet-cup">Using A Cup</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#donate" class="cta">Donate</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="blob" style="width:320px;height:320px;background:var(--marigold);opacity:0.22;top:-40px;right:0;"></div>
+  <div class="wrap">
+    <div class="eyebrow">Mount Abu, Rajasthan</div>
+    <h1>Nobody should miss school over <em>something this normal</em>.</h1>
+    <p class="lede">We run in person sessions in schools and communities, then leave every girl with a menstrual cup that lasts fifteen years, not a pamphlet.</p>
+    <div class="cta-row">
+      <a href="#donate" class="btn gold">Chip in ₹50</a>
+      <a href="#mission" class="btn outline">Read our mission</a>
+    </div>
+    <div class="stat-strip">
+      <div><div class="n">16+</div><div class="l">Schools reached</div></div>
+      <div><div class="n">30+</div><div class="l">Workshops run</div></div>
+      <div><div class="n">200+</div><div class="l">Distributions</div></div>
+    </div>
+    <div class="photo-row">
+      <div class="arch-photo"><img src="images/session.jpg" alt="Girls seated during a BleedBOLD school awareness session in Rajasthan"></div>
+      <img class="tilt2" src="images/distribution.jpg" alt="Women and girls holding up menstrual cups distributed by BleedBOLD">
+    </div>
+  </div>
+</div>
+
+<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
+
+<div class="quote-strip">
+  <svg width="100%" height="100%" style="position:absolute;inset:0;"><rect width="100%" height="100%" fill="url(#bandhaniDots)"/></svg>
+  <div class="wrap">
+    <div class="quote">"We're often the first place a girl's ever been offered a cup, not a pad."</div>
+    <div class="founder-pic">
+      <img src="images/founder.jpg" alt="Utkarsha, founder of BleedBOLD">
+      <div class="founder-meta">
+        <div class="founder-name">Utkarsha</div>
+        <div class="founder-role">Founder, BleedBOLD</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="mission-grid">
+      <div>
+        <div class="kicker">Why this exists</div>
+        <h2>A gap nobody was filling</h2>
+      </div>
+      <div>
+        <p>BleedBOLD started with a simple observation from home: in many families, periods are still handled in whispers, girls miss school during their cycle, and menstrual cups, the one product that could actually solve this, aren't sold anywhere nearby.</p>
+        <p><strong>We run in person sessions</strong> in schools and community halls that cover the biology, the hygiene, and the plain fact that this is normal, not shameful. We follow every session with menstrual cup distribution so the conversation turns into something a girl can actually use that week, and use again for the next fifteen years.</p>
+        <p class="pull">Nobody should have to choose between school and their period.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-cup" id="why-cup">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why a cup, not a pad</div>
+      <h2>The thing girls actually need, but can't buy</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 18 12 27C12 34 17.4 39 24 39C30.6 39 36 34 36 27C36 18 24 5 24 5Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 27C18 27 19 32 24 32" stroke="#E8A430" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Not on any shelf</h3>
+        <p>Walk into almost any pharmacy, mall kiosk, or corner shop in a small town and you'll find pads. Menstrual cups are a different story, most places simply don't stock them. For many girls we work with, we're the first place they've ever been offered one.</p>
+      </div>
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17" stroke="#B83A5C" stroke-width="2.2"/><path d="M24 14V24L31 28" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Lasts 15 plus years</h3>
+        <p>One cup, cared for properly, holds up for over fifteen years. That's not close to a monthly pad purchase, it's a decision a girl makes once and is done with for most of her reproductive life.</p>
+      </div>
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 6L38 12V22C38 31 32 38 24 41C16 38 10 31 10 22V12L24 6Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 23L22 27L30 18" stroke="#E8A430" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Checked by a gynecologist</h3>
+        <p>Every cup we distribute is reviewed by a gynecologist before it reaches anyone. Quality control on menstrual products varies a lot depending on where they're made, so we verify it ourselves rather than take a supplier's word for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="meet-cup" id="meet-cup">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">First time with a cup</div>
+      <h2>What it is, and how it's used</h2>
+      <p>Most girls we meet have never seen a menstrual cup before, so every session starts here.</p>
+    </div>
+    <div class="cup-grid">
+      <div class="cup-illustration">
+        <svg viewBox="0 0 200 260" width="100%" style="max-width:220px;">
+          <ellipse cx="100" cy="42" rx="70" ry="15" fill="none" stroke="#B83A5C" stroke-width="4"/>
+          <ellipse cx="100" cy="42" rx="70" ry="15" fill="#B83A5C" opacity="0.08"/>
+          <path d="M30,44 C24,112 40,177 78,204 C92,212 108,212 122,204 C160,177 176,112 170,44" fill="none" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M42,80 C40,80 160,80 158,80" stroke="#B83A5C" stroke-width="1.5" opacity="0.3"/>
+          <path d="M46,110 C44,110 156,110 154,110" stroke="#B83A5C" stroke-width="1.5" opacity="0.3"/>
+          <line x1="100" y1="204" x2="100" y2="230" stroke="#B83A5C" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="100" cy="234" r="4" fill="#E8A430"/>
+        </svg>
+      </div>
+      <div>
+        <ul class="cup-facts">
+          <li><span class="ck">✓</span> Made of soft medical grade silicone, not plastic or latex</li>
+          <li><span class="ck">✓</span> Sits low in the body and collects flow instead of absorbing it</li>
+          <li><span class="ck">✓</span> Can be worn for up to 12 hours before it needs emptying</li>
+          <li><span class="ck">✓</span> Rinsed with water between uses, sterilized in boiling water between cycles</li>
+          <li><span class="ck">✓</span> One cup replaces roughly 2,400 disposable pads over its lifetime</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fold-guide">
+      <div class="fold-guide-head">
+        <h3>Two ways to fold it for first insertion</h3>
+        <p>Every kit we hand out includes a printed version of this. Folding makes the rim narrow enough to insert comfortably, it opens back up on its own once inside.</p>
+      </div>
+      <div class="fold-methods">
+        <div class="fold-method">
+          <h4>C-fold</h4>
+          <div class="fold-steps">
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/></svg>
+              <span>Start flat</span>
+            </div>
+            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><path d="M28,8 A20,20 0 0 1 28,48 Z" fill="none" stroke="#B83A5C" stroke-width="3" stroke-linejoin="round"/></svg>
+              <span>Press in half</span>
+            </div>
+            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><ellipse cx="28" cy="28" rx="8" ry="20" fill="none" stroke="#E8A430" stroke-width="3"/></svg>
+              <span>Narrow C shape</span>
+            </div>
+          </div>
+        </div>
+        <div class="fold-method">
+          <h4>Punch down fold</h4>
+          <div class="fold-steps">
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/></svg>
+              <span>Start flat</span>
+            </div>
+            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="none" stroke="#B83A5C" stroke-width="3"/><path d="M28,10 L28,28 L14,28" fill="none" stroke="#B83A5C" stroke-width="3" stroke-linecap="round"/></svg>
+              <span>Push one edge to center</span>
+            </div>
+            <svg class="fold-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="fold-step">
+              <svg viewBox="0 0 56 56"><path d="M28,8 L44,44 L12,44 Z" fill="none" stroke="#E8A430" stroke-width="3" stroke-linejoin="round"/></svg>
+              <span>Slim pinched tip</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How it runs</div>
+      <h2>Three steps, same order every time</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 14L24 6L40 14L24 22L8 14Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 20V32C14 32 18 37 24 37C30 37 34 32 34 32V20" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14V26" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Get into the room</h3>
+        <p>We partner directly with a school or a community group willing to give us an hour with their girls or women, no middlemen, no paperwork chain.</p>
+      </div>
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 18 12 27C12 34 17.4 39 24 39C30.6 39 36 34 36 27C36 18 24 5 24 5Z" stroke="#B83A5C" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 27C18 27 19 32 24 32" stroke="#E8A430" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Say it plainly</h3>
+        <p>Biology, hygiene, what's normal and what isn't, delivered without euphemism, in whatever language the room actually speaks.</p>
+      </div>
+      <div class="card">
+        <div class="p-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="14" y="10" width="20" height="30" rx="3" stroke="#B83A5C" stroke-width="2.2"/><path d="M20 4H28" stroke="#B83A5C" stroke-width="2.2" stroke-linecap="round"/><path d="M24 4V10" stroke="#B83A5C" stroke-width="2.2"/><path d="M19 24C19 21 21 19 24 19C27 19 29 21 29 24C29 27 24 32 24 32C24 32 19 27 19 24Z" fill="#E8A430"/></svg></div>
+        <h3>Leave real supply</h3>
+        <p>Every session ends with menstrual cups going home with the people in that room, not a pamphlet, not a promise for later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="print-strip" viewBox="0 0 100 44" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="44"/></svg>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">On the ground</div>
+      <h2>What a session actually looks like</h2>
+      <p>Two moments from recent outreach, one mid conversation, one right after supplies went out.</p>
+    </div>
+    <div class="photo-block">
+      <div class="pb-img"><img src="images/session.jpg" alt="Girls seated on a mat during a BleedBOLD school awareness session"></div>
+      <div class="pb-text">
+        <div class="pb-tag">School session</div>
+        <h3>Straight talk, no euphemisms</h3>
+        <p>We sit with students in their own school courtyard and walk through what's actually happening in their bodies, what's normal, and what to do about pain, irregularity, and hygiene, in language they'd use with each other.</p>
+      </div>
+    </div>
+    <div class="photo-block reverse">
+      <div class="pb-img"><img src="images/distribution.jpg" alt="Women and girls at a community gathering holding up menstrual cups distributed by BleedBOLD"></div>
+      <div class="pb-text">
+        <div class="pb-tag">Community distribution</div>
+        <h3>Education backed by supplies</h3>
+        <p>Talking about periods openly matters, but it doesn't fix an empty shelf at home. Every session we run is paired with a menstrual cup distribution round so families leave with something reusable that lasts years, not a monthly cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="donate" id="donate">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Chip in</div>
+      <h2>Fund the next session</h2>
+      <p>BleedBOLD isn't registered as a nonprofit yet, so there's no tax receipt to offer right now. Every rupee still goes straight into sessions and supplies, not overhead.</p>
+    </div>
+    <div class="donate-grid">
+      <div class="donate-copy">
+        <div class="price-compare">
+          <div class="price-col">
+            <div class="price-label">Retail, one cup</div>
+            <div class="price-bar retail"><span>₹250 to ₹500</span></div>
+          </div>
+          <div class="price-col">
+            <div class="price-label">Our manufacturer rate</div>
+            <div class="price-bar cost"><span>₹50</span></div>
+          </div>
+        </div>
+        <p>We negotiated directly with the manufacturer, so every rupee you give funds a lot more than it would buying cups off a shelf.</p>
+        <ul class="donate-list">
+          <li><span class="n">₹50</span> One menstrual cup, at cost</li>
+          <li><span class="n">₹1,000</span> Cups for a full classroom, 20 girls</li>
+          <li><span class="n">₹4,000</span> Cups plus a full community distribution round</li>
+        </ul>
+      </div>
+      <div class="donate-card">
+        <div class="kicker">Pay by UPI</div>
+        <h3>Scan or send directly</h3>
+        <div class="upi-box">
+          UPI ID: [add your UPI ID here]<br>
+          QR code: [drop QR image here]
+        </div>
+        <p>Works with Google Pay, PhonePe, and Paytm. Funds land directly in the founder's account, transparently, until BleedBOLD completes formal registration.</p>
+        <a href="#contact" class="btn gold" style="margin-top:6px;">International? Email us</a>
+        <div class="intl-note">
+          Outside India? UPI won't work for you directly. Email <a href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com</a> and we'll sort out a way for you to contribute.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="kicker">Get in touch</div>
+        <h2>Questions, partnerships, volunteering</h2>
+        <p style="color:var(--ink-soft);margin-top:16px;max-width:420px;">Whether you run a school, want to volunteer at a session, or just want to know more before you support us, send a note directly.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Say hello</h3>
+        <p>We read and reply to everything ourselves.</p>
+        <a class="email-link" href="mailto:utkarshableedbold@gmail.com">utkarshableedbold@gmail.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="wordmark">bleed<em>BOLD</em></div>
+        <p class="footer-tag">Menstrual health education and menstrual cup access, built from Mount Abu, Rajasthan.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">© 2026 BleedBOLD. Built with care, not incorporated yet.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+
+</body>
+</html>
